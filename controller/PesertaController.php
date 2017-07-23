@@ -1,5 +1,5 @@
 <?php
-include "koneksi.php";
+include "../koneksi.php";
 date_default_timezone_set("Asia/Jakarta");
 
 if(isset($_POST['postPeserta'])){
@@ -11,11 +11,12 @@ if(isset($_POST['postPeserta'])){
       $phone= $_POST['phone'];
       $email= $_POST['email'];
 
-      $query = "INSERT INTO peserta VALUES('','$nim','$fullname','$jurusan','$phone','$email','','')";
+      $query = "INSERT INTO peserta (nim,fullname,jurusan,phone,email) VALUES('$nim','$fullname','$jurusan','$phone','$email')";
       if ($conn->query($query) === TRUE) {
         echo "berhasil, tinggal lempar ke index info";
       }else{
         echo "gagal, tinggal lempar ke index";
+        echo $conn->error;
       }
       break;
 
