@@ -1,5 +1,5 @@
 <?php
-include "koneksi.php";
+include "../koneksi.php";
 date_default_timezone_set("Asia/Jakarta");
 
 if(isset($_POST['postJurusan'])){
@@ -9,7 +9,7 @@ if(isset($_POST['postJurusan'])){
       $nama= $_POST['nama'];
       $fakultas= $_POST['fakultas'];
 
-      $query = "INSERT INTO jurusan VALUES('$id','$nama','$fakultas','','')";
+      $query = "INSERT INTO jurusan (id,nama,fakultas) VALUES('$id','$nama','$fakultas')";
       if ($conn->query($query) === TRUE) {
         echo "berhasil, tinggal lempar ke index info";
       }else{
@@ -42,7 +42,7 @@ if(isset($_POST['postJurusan'])){
       break;
 
     default :
-      echo "Error here ...";
+      echo "Error here ...(Wrong type)";
   }
 }else{
   echo "Error Here ..";
