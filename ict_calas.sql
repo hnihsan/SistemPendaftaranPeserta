@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Struktur dari tabel `calas`
 --
 
-CREATE TABLE `calas` (
+CREATE TABLE `peserta` (
   id bigint(8) NOT NULL AUTO_INCREMENT,
   `nim` char(10) ,
   `nama_lengkap` varchar(255) NOT NULL,
