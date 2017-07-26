@@ -1,11 +1,5 @@
-<script src="resources/jquery-3.1.0.min.js"></script>
-<script src="resources/bootstrap/js/bootstrap.js"></script>
-<script src="resources/bootstrap-material-design/dist/js/material.min.js"></script>
-<script src="resources/bootstrap-material-design/dist/js/ripples.min.js"></script>
-<script src="resources/dropdown.js/jquery.dropdown.js"></script>
-<script type="text/javascript">
-  $.material.init();
-  $(".select").dropdown({ "autoinit" : ".select" });
-  </script>
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
 </body>
 </html>
