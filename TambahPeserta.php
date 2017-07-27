@@ -75,13 +75,9 @@ if (isset($_POST['simpan'])) {
                   </div>
                 </div>
                 <div class="row">
-                  <div class="input-field col m6 s12">
-                    <input id="nama_depan" type="text" name="nama_depan" class="validate" required="" maxlength="35" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
-                    <label for="nama_depan">Nama Depan</label>
-                  </div>
-                  <div class="input-field col m6 s12">
-                    <input id="nama_belakang" type="text" name="nama_belakang" class="validate" required="" maxlength="35" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
-                    <label for="nama_belakang">Nama Belakang</label>
+                  <div class="input-field col s12">
+                    <input id="username" type="text" name="username" class="validate" required="" maxlength="35" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                    <label for="username">Nama Peserta</label>
                   </div>
                 </div>
                 <div class="row">
