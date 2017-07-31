@@ -62,7 +62,7 @@ if (isset($_POST['simpan'])) {
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col m7">
+      <div class="col m6">
         <form class="form-horizontal" action="TambahPeserta.php" method="post">
           <div class="card">
             <div class="card-content">
@@ -99,9 +99,9 @@ if (isset($_POST['simpan'])) {
           </div>
         </form>
       </div>
-      <div class="col m5">
+      <div class="col m6">
         <div class="card">
-          <div class="card content">
+          <div class="card-content">
             <span class="card-title">Pendaftar Terkini (<?php echo date('d-m-Y') ?>)</span>
             <div class="container-fluid">
               <table class="bordered highlight responsive-table">
