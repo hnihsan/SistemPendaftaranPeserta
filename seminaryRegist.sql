@@ -8,6 +8,7 @@ CREATE TABLE peserta (
   jurusan char(2) NOT NULL,
   phone varchar(17),
   email varchar(255),
+  status tinyint(1) DEFAULT 1,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY(id)
