@@ -37,8 +37,8 @@ date_default_timezone_set("Asia/Jakarta");
                       <label for="nim">Nomor Induk Mahasiswa</label>
                     </div>
                     <div class="input-field col m6 s12">
-                      <input id="username" type="text" name="username" class="validate" required="" maxlength="35" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
-                      <label for="username">Nama Peserta</label>
+                      <input id="fullname" type="text" name="fullname" class="validate" required="" maxlength="35" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                      <label for="fullname">Nama Peserta</label>
                     </div>
                   </div>
                   <div class="row">
@@ -52,19 +52,19 @@ date_default_timezone_set("Asia/Jakarta");
                     </div>
                   </div>
                   <p>
-                    <input type="checkbox" class="filled-in" id="seminar1" name="seminar" class="orange">
+                    <input type="checkbox" class="filled-in" id="seminar1" name="seminar">
                     <label for="seminar1">Seminar 1</label>
                   </p>
                   <p>
-                    <input type="checkbox" class="filled-in" id="seminar2" name="seminar" class="orange">
+                    <input type="checkbox" class="filled-in" id="seminar2" name="seminar">
                     <label for="seminar2">Seminar 2</label>
                   </p>
                   <p>
-                    <input type="checkbox" class="filled-in" id="seminar3" name="seminar" class="orange">
+                    <input type="checkbox" class="filled-in" id="seminar3" name="seminar">
                     <label for="seminar3">Seminar 3</label>
                   </p>
                   <p>
-                    <input type="checkbox" class="filled-in" id="seminar4" name="seminar" class="orange">
+                    <input type="checkbox" class="filled-in" id="seminar4" name="seminar">
                     <label for="seminar4">Seminar 4</label>
                   </p>
                 </div>
@@ -116,7 +116,7 @@ date_default_timezone_set("Asia/Jakarta");
             <div class="card-content">
               <span class="card-title">Pendaftar Terkini (<?php echo date('d-m-Y') ?>)</span>
               <div class="container-fluid">
-                <table class="bordered highlight responsive-table">
+                <table class="bordered highlight responsive-table" id="tabel1">
                   <thead>
                     <tr>
                       <th>NIM</th>
