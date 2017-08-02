@@ -10,7 +10,7 @@ date_default_timezone_set("Asia/Jakarta");
     </div>
     <a href="TambahPeserta.php" class="active item">Tambah Peserta</a>
     <a href="PesertaTerdaftar.php" class="item">Peserta Terdaftar</a>
-    <a class="item">Halaman Admin</a>
+    <a href="admin.php" class="item">Halaman Admin</a>
     <div class="right menu">
       <a href="#" class="item"><i class="sign out icon"></i> Keluar</a>
     </div>
@@ -33,12 +33,12 @@ date_default_timezone_set("Asia/Jakarta");
             </div>
             <div class="two fields">
               <div class="field">
-                <label for="telephone">Nomor Telepon</label>
-                <input id="telephone" type="text" name="telephone" required="" maxlength="17" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                <label for="phone">Nomor Telepon</label>
+                <input id="phone" type="text" name="phone" required="" maxlength="17" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
               </div>
               <div class="field">
-                <label for="alamat_email">Alamat Email</label>
-                <input id="alamat_email" type="text" name="alamat_email" required="" maxlength="100" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                <label for="email">Alamat Email</label>
+                <input id="email" type="text" name="email" required="" maxlength="100" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
               </div>
             </div>
             <div class="two fields">
