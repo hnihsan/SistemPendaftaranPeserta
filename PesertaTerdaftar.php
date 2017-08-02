@@ -17,7 +17,7 @@ date_default_timezone_set("Asia/Jakarta");
   </div>
   <div class="ui stackable main container grid">
     <div class="sixteen width column">
-      <div class="ui raised yellow segment">
+      <div class="ui piled yellow segment">
         <h4 class="ui dividing header">Daftar Peserta Terdaftar</h4>
         <table class="ui padded selectable very basic table" id="table_id">
           <thead>

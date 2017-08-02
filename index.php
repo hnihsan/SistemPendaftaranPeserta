@@ -1,33 +1,99 @@
-<?php include 'head.php'; ?>
-    <div class="container">
-      <div class="row">
-        <div class="col m6 offset-m3">
-          <form class="" action="" method="post">
-            <div class="card">
-              <div class="card-content">
-                <span class="card-title">Masuk ke Sistem Pendaftaran</span>
-                <div class="row">
-                  <div class="col s12">
-                    <div class="input-field col s12">
-                      <input id="username" name="username" type="text" class="validate">
-                      <label for="username">Nama Admin</label>
-                    </div>
-                  </div>
-                  <div class="col s12">
-                    <div class="input-field col s12">
-                      <input id="password" name="password" type="password" class="validate">
-                      <label for="password">Kata Sandi</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-action right-align">
-                <button class="btn-flat waves-effect waves-dark" type="clear" name="clear">Bersihkan</button>
-                <button class="btn-flat waves-effect waves-dark orange-text" type="submit" name="simpan" onclick="loadDoc">Simpan</button>
-              </div>
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <!-- Site Properties -->
+  <title>Login Example - Semantic</title>
+  <link rel="stylesheet" type="text/css" href="resources/semantic/semantic.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="resources/semantic/semantic.min.js"></script>
+  <style type="text/css">
+    body > .grid {
+      height: 100%;
+    }
+    .image {
+      margin-top: -100px;
+    }
+    .column {
+      max-width: 450px;
+    }
+  </style>
+  <script>
+  $(document)
+    .ready(function() {
+      $('.ui.form')
+        .form({
+          fields: {
+            email: {
+              identifier  : 'email',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter your e-mail'
+                },
+                {
+                  type   : 'email',
+                  prompt : 'Please enter a valid e-mail'
+                }
+              ]
+            },
+            password: {
+              identifier  : 'password',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter your password'
+                },
+                {
+                  type   : 'length[6]',
+                  prompt : 'Your password must be at least 6 characters'
+                }
+              ]
+            }
+          }
+        })
+      ;
+    })
+  ;
+  </script>
+</head>
+<body>
+
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui blue image header">
+      <img src="resources/images/logo_bl.png" class="image">
+      <div class="content">
+        Sistem Pendaftaran Seminar
+      </div>
+    </h2>
+    <form class="ui large form">
+      <div class="ui piled segments">
+        <div class="ui yellow segment">
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="username" placeholder="Nama Pengguna">
             </div>
-          </form>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="password" name="password" placeholder="Kata Sandi">
+            </div>
+          </div>
+        </div>
+        <div class="ui one bottom attached buttons">
+          <button class="ui button" type="clear" name="clear">Bersihkan</button>
+          <button class="ui large primary submit button">Masuk</button>
         </div>
       </div>
-    </div>
-<?php include 'footer.php'; ?>
+      <div class="ui error message"></div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
