@@ -1,10 +1,15 @@
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="resources/semantic/semantic.min.js"></script>
-  <script type="text/javascript" charset="utf8" src="resources/js/datatables.semantic.js"></script>
+  <script type="text/javascript" charset="utf8" src="resources/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="resources/js/dataTables.semanticui.min.js"></script>
   <script type="text/javascript">
   $(document).ready( function () {
-    $('#tabel1').DataTable();
-  } );
+    $('#table_id').DataTable({
+      language: {
+        url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Indonesian.json'
+      }
+    });
+} );
   </script>
 </body>
 </html>
