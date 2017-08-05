@@ -72,7 +72,7 @@
     </h2>
     <form class="ui large form">
       <div class="ui piled segments">
-        <div class="ui yellow segment">
+        <div class="ui yellow attached segment">
           <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
@@ -86,10 +86,7 @@
             </div>
           </div>
         </div>
-        <div class="ui one bottom attached buttons">
-          <button class="ui button" type="clear" name="clear">Bersihkan</button>
-          <button class="ui large primary submit button">Masuk</button>
-        </div>
+        <div class="ui bottom attached primary button" tabindex="0">Masuk</div>
       </div>
       <div class="ui error message"></div>
     </form>

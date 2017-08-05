@@ -9,16 +9,16 @@ date_default_timezone_set("Asia/Jakarta");
     </div>
     <a href="TambahPeserta.php" class="item">Tambah Peserta</a>
     <a href="PesertaTerdaftar.php" class="active item">Peserta Terdaftar</a>
-    <a href="admin.php" class="item">Halaman Admin</a>
+    <a href="Seminar.php" class="item">Halaman Admin</a>
     <div class="right menu">
       <a href="#" class="item"><i class="sign out icon"></i> Keluar</a>
     </div>
   </div>
   <div class="ui stackable main container grid">
     <div class="sixteen width column">
-      <div class="ui piled yellow segment">
+      <div class="ui raised yellow segment">
         <h4 class="ui dividing header">Daftar Peserta Terdaftar</h4>
-        <table class="ui padded selectable very basic table" id="table_id">
+        <table class="ui padded selectable very basic table" id="table1">
           <thead>
             <tr>
               <th>NIM</th>

@@ -4,7 +4,7 @@
   <script type="text/javascript" charset="utf8" src="resources/js/dataTables.semanticui.min.js"></script>
   <script type="text/javascript">
   $(document).ready( function () {
-    $('#table_id').DataTable({
+    $('#table1').DataTable({
       language: {
         url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Indonesian.json'
       }

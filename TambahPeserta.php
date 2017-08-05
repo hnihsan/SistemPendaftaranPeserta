@@ -9,7 +9,7 @@ date_default_timezone_set("Asia/Jakarta");
     </div>
     <a href="TambahPeserta.php" class="active item">Tambah Peserta</a>
     <a href="PesertaTerdaftar.php" class="item">Peserta Terdaftar</a>
-    <a href="admin.php" class="item">Halaman Admin</a>
+    <a href="Seminar.php" class="item">Halaman Admin</a>
     <div class="right menu">
       <a href="#" class="item"><i class="sign out icon"></i> Keluar</a>
     </div>
@@ -17,7 +17,7 @@ date_default_timezone_set("Asia/Jakarta");
   <div class="ui stackable main container grid">
     <div class="eight wide column">
       <form class="ui form" action="TambahPeserta.php" method="post">
-        <div class="ui piled segments">
+        <div class="ui raised segments">
           <div class="ui yellow segment">
             <h4 class="ui dividing header">Data Diri</h4>
             <div class="two fields">
@@ -83,7 +83,7 @@ date_default_timezone_set("Asia/Jakarta");
       </form>
     </div>
     <div class="eight wide column">
-      <div class="ui piled yellow segment">
+      <div class="ui raised yellow segment">
         <h4 class="ui dividing header">Pendaftar Terkini (<?php echo date('d-m-Y') ?>)</h4>
         <table class="ui padded selectable very basic table">
           <thead>
