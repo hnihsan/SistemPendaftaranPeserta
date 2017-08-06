@@ -11,13 +11,10 @@
     });
     $('.ui.dropdown').dropdown();
     $('.ui.modal').modal('attach events', '.tambah.button', 'show');
-    $('.ui.search')
-    .search({
-      source : content,
-    searchFields   : [
-      'title'
-    ],
-    searchFullText: false
+    $('.ui.search').search({
+      source:         content,
+      searchFields:   ['title'],
+      searchFullText: false
     });
   } );
   </script>
