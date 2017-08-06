@@ -9,7 +9,12 @@ date_default_timezone_set("Asia/Jakarta");
     </div>
     <a href="TambahPeserta.php" class="item">Tambah Peserta</a>
     <a href="PesertaTerdaftar.php" class="item">Peserta Terdaftar</a>
-    <a href="Seminar.php" class="active item">Halaman Admin</a>
+    <div class="ui dropdown item">Halaman Admin <i class="dropdown icon"></i>
+      <div class="menu">
+        <a href="Seminar.php" class="active item">Seminar</a>
+        <a href="Pengguna.php" class="item">Pengguna</a>
+      </div>
+    </div>
     <div class="right menu">
       <a href="#" class="item"><i class="sign out icon"></i> Keluar</a>
     </div>

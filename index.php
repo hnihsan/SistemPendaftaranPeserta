@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <!-- Site Properties -->
-  <title>Login Example - Semantic</title>
+  <title>Masuk ke Sistem Pendaftaran Seminar</title>
   <link rel="stylesheet" type="text/css" href="resources/semantic/semantic.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="resources/semantic/semantic.min.js"></script>
@@ -71,7 +71,7 @@
       </div>
     </h2>
     <form class="ui large form">
-      <div class="ui piled segments">
+      <div class="ui raised segments">
         <div class="ui yellow attached segment">
           <div class="field">
             <div class="ui left icon input">
