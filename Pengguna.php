@@ -21,40 +21,68 @@ date_default_timezone_set("Asia/Jakarta");
   </div>
   <div class="ui stackable main container grid">
     <div class="sixteen width column">
-      <div class="ui grid">
-        <div class="four wide column">
-          <div class="ui secondary vertical pointing menu">
-            <a class="item" href="Seminar.php">Seminar</a>
-            <a class="active item" href="Pengguna.php">Pengguna</a>
-          </div>
+      <div class="ui raised segments">
+        <div class="ui yellow segment">
+          <h4 class="ui dividing header">Daftar Pengguna</h4>
+          <table class="ui padded selectable very basic table" id="table1">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama Pengguna</th>
+                <th>Telepon</th>
+                <th>Email</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>Belum ada data</td>
+                <td>Belum ada data</td>
+                <td>Belum ada data</td>
+                <td><a href="#">Ubah</a></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="twelve wide stretched column">
-          <div class="ui raised segments">
-            <div class="ui yellow segment">
-              <h4 class="ui dividing header">Daftar Pengguna</h4>
-              <table class="ui padded selectable very basic table" id="table1">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Nama Pengguna</th>
-                    <th>Telepon</th>
-                    <th>Email</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>0</td>
-                    <td>Belum ada data</td>
-                    <td>Belum ada data</td>
-                    <td>Belum ada data</td>
-                    <td><a href="#">Ubah</a></td>
-                  </tr>
-                </tbody>
-              </table>
+        <div class="ui bottom attached primary tambah button" tabindex="0">Tambah Pengguna</div>
+      </div>
+      <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+          Tambah Pengguna
+        </div>
+        <div class="content">
+          <form class="ui form" action="Pengguna.php" method="post">
+            <div class="field">
+              <label for="username">Nama Pengguna</label>
+              <input id="username" type="text" name="username" required="" maxlength="35">
             </div>
-            <div class="ui bottom attached primary button" tabindex="0">Tambah Seminar</div>
-          </div>
+            <div class="two fields">
+              <div class="field">
+                <label for="password">Kata Sandi</label>
+                <input id="password" type="password" name="password" required="" maxlength="17">
+              </div>
+              <div class="field">
+                <label for="valid_pass">Konfirmasi Kata Sandi</label>
+                <input id="valid_pass" type="password" name="valid_pass" required="" maxlength="100">
+              </div>
+            </div>
+            <div class="two fields">
+              <div class="field">
+                <label for="phone">Telepon</label>
+                <input id="phone" type="text" name="phone" required="" maxlength="17" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" required="" maxlength="100" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="actions">
+          <input class="ui button" type="reset" value="Bersihkan">
+          <input class="ui primary right button" type="submit" name="simpan" value="Simpan">
         </div>
       </div>
     </div>

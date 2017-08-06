@@ -81,8 +81,8 @@ date_default_timezone_set("Asia/Jakarta");
             </div>
           </div>
           <div class="ui two bottom attached buttons">
-            <button class="ui button" type="clear" name="clear">Bersihkan</button>
-            <button class="ui primary button" type="submit" name="simpan" onclick="loadDoc">Simpan</button>
+            <input class="ui button" type="reset" value="Bersihkan">
+            <input class="ui primary button" type="submit" name="simpan" value="Simpan">
           </div>
         </div>
       </form>
