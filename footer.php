@@ -1,5 +1,17 @@
-  <!--Import jQuery before materialize.js-->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="resources/js/materialize.min.js"></script>
+  <script src="resources/js/jquery.js"></script>
+  <script src="resources/semantic/semantic.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="resources/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="resources/js/dataTables.semanticui.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function () {
+    $('#table1').DataTable({
+      language: {
+        url: 'resources/Indonesian.json'
+      }
+    });
+    $('.ui.dropdown').dropdown();
+    $('.ui.modal').modal('attach events', '.tambah.button', 'show');
+  } );
+  </script>
 </body>
 </html>

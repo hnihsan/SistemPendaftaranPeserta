@@ -1,0 +1,101 @@
+<?php
+include "head.php";
+date_default_timezone_set("Asia/Jakarta");
+?>
+  <!--Menu-->
+  <div class="ui stackable top fixed inverted borderless blue menu">
+    <div class="item">
+      <img src="resources/images/logo_bl.png">
+    </div>
+    <a href="TambahPeserta.php" class="item">Tambah Peserta</a>
+    <a href="PesertaTerdaftar.php" class="item">Peserta Terdaftar</a>
+    <div class="ui dropdown item">Halaman Admin <i class="dropdown icon"></i>
+      <div class="menu">
+        <a href="Seminar.php" class="active item">Seminar</a>
+        <a href="Pengguna.php" class="item">Pengguna</a>
+      </div>
+    </div>
+    <div class="right menu">
+      <a href="#" class="item"><i class="sign out icon"></i> Keluar</a>
+    </div>
+  </div>
+  <div class="ui stackable main container grid">
+    <div class="sixteen width column">
+      <div class="ui raised segments">
+        <div class="ui yellow attached segment">
+          <h4 class="ui dividing header">Daftar Seminar</h4>
+          <table class="ui padded selectable very basic table" id="table1">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama Seminar</th>
+                <th>Waktu</th>
+                <th>Tempat</th>
+                <th>Kuota</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>Belum ada data</td>
+                <td>Belum ada data</td>
+                <td>Belum ada data</td>
+                <td>-</td>
+                <td><a href="#">Ubah</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ui bottom attached primary tambah button" tabindex="0">Tambah Seminar</div>
+      </div>
+      <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+          Tambah Seminar
+        </div>
+        <div class="content">
+          <form class="ui form" action="Seminar.php" method="post">
+            <div class="two fields">
+              <div class="field">
+                <label for="id">Kode Seminar</label>
+                <input id="id" type="text" name="id" readonly="">
+              </div>
+              <div class="field">
+                <label for="nm_seminar">Nama Seminar</label>
+                <input id="nm_seminar" type="text" name="nm_seminar" value="">
+              </div>
+            </div>
+            <div class="two fields">
+              <div class="field">
+                <label for="waktu">Waktu</label>
+                <input id="waktu" type="datetime-local" name="waktu" required="">
+              </div>
+              <div class="field">
+                <label for="tempat">Tempat</label>
+                <input id="tempat" type="text" name="tempat" required="">
+              </div>
+            </div>
+            <div class="two fields">
+              <div class="field">
+                <label for="kuota">Kuota</label>
+                <input id="kuota" type="number" name="kuota" required="" max="300">
+              </div>
+              <div class="field">
+                <label for="email">Narasumber</label>
+                <div class="ui action input">
+                  <input id="narasumber" type="text" name="narasumber" required="" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                  <button class="ui button">Pilih</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="actions">
+          <input class="ui button" type="reset" value="Bersihkan">
+          <input class="ui primary right button" type="submit" name="simpan" value="Simpan">
+        </div>
+      </div>
+    </div>
+  </div>
+<?php include 'footer.php'; ?>
