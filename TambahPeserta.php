@@ -32,27 +32,27 @@ date_default_timezone_set("Asia/Jakarta");
               </div>
               <div class="field">
                 <label for="fullname">Nama Peserta</label>
-                <input id="fullname" type="text" name="fullname" required="" maxlength="35" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                <input id="fullname" type="text" name="fullname" required="" maxlength="50" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
               </div>
             </div>
             <div class="two fields">
               <div class="field">
                 <label for="phone">Nomor Telepon</label>
-                <input id="phone" type="text" name="phone" required="" maxlength="17" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                <input id="phone" type="text" name="phone" required="" maxlength="17" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
               </div>
               <div class="field">
                 <label for="email">Alamat Email</label>
-                <input id="email" type="text" name="email" required="" maxlength="100" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                <input id="email" type="text" name="email" required="" maxlength="100">
               </div>
             </div>
             <div class="two fields">
               <div class="field">
                 <label for="fakultas">Fakultas</label>
-                <input id="fakultas" type="text" name="fakultas" required="" readonly maxlength="17" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                <input id="fakultas" type="text" name="fakultas" required="" readonly>
               </div>
               <div class="field">
                 <label for="jurusan">Jurusan</label>
-                <input id="jurusan" type="text" name="jurusan" required="" readonly maxlength="100" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                <input id="jurusan" type="text" name="jurusan" required="" readonly>
               </div>
             </div>
             <div class="inline field">

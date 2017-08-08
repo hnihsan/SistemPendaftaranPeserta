@@ -73,22 +73,20 @@ date_default_timezone_set("Asia/Jakarta");
               </div>
               <div class="field">
                 <label for="tempat">Tempat</label>
-                <input id="tempat" type="password" name="tempat" required="">
+                <input id="tempat" type="text" name="tempat" required="">
               </div>
             </div>
             <div class="two fields">
               <div class="field">
                 <label for="kuota">Kuota</label>
-                <input id="kuota" type="number" name="kuota" required="" maxlength="17" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                <input id="kuota" type="number" name="kuota" required="" max="300">
               </div>
               <div class="field">
                 <label for="email">Narasumber</label>
-                <select class="ui multiple search fluid dropdown" id="narasumber" name="narasumber" multiple="">
-                  <option value=""></option>
-                  <option value="">Mario Teguh</option>
-                  <option value="">Hanan Attaki</option>
-                  <option value="">Ari Ginanjar</option>
-                </select>
+                <div class="ui action input">
+                  <input id="narasumber" type="text" name="narasumber" required="" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                  <button class="ui button">Pilih</button>
+                </div>
               </div>
             </div>
           </form>
