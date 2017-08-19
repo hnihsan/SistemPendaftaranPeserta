@@ -7,8 +7,11 @@ date_default_timezone_set("Asia/Jakarta");
     <div class="item">
       <img src="resources/images/logo_bl.png">
     </div>
-    <a href="TambahPeserta.php" class="active item">Tambah Peserta</a>
-    <a href="PesertaTerdaftar.php" class="item">Peserta Terdaftar</a>
+    <div class="ui dropdown item">Peserta Terdaftar <i class="dropdown icon"></i>
+      <div class="menu">
+        <a href="Peserta.php" class="active item">Peserta Seminar 1</a>
+      </div>
+    </div>
     <div class="ui dropdown item">Halaman Admin <i class="dropdown icon"></i>
       <div class="menu">
         <a href="Seminar.php" class="item">Seminar</a>
@@ -20,11 +23,40 @@ date_default_timezone_set("Asia/Jakarta");
     </div>
   </div>
   <div class="ui stackable main container grid">
-    <div class="eight wide column">
-      <form class="ui form" action="TambahPeserta.php" method="post">
-        <div class="ui raised segments">
-          <div class="ui yellow segment">
-            <h4 class="ui dividing header">Data Diri</h4>
+    <div class="sixteen width column">
+      <div class="ui raised segments">
+        <div class="ui yellow segment">
+          <h4 class="ui dividing header">Daftar Peserta Terdaftar</h4>
+          <table class="ui padded selectable very basic table" id="table1">
+            <thead>
+              <tr>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Program Studi</th>
+                <th>Status</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>Belum ada data</td>
+                <td>Belum ada data</td>
+                <td>-</td>
+                <td><a href="#">Ubah</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ui bottom attached primary tambah button" tabindex="0">Tambah Peserta</div>
+      </div>
+      <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+          Tambah Peserta
+        </div>
+        <div class="content">
+          <form class="ui form" action="Peserta.php" method="post">
             <div class="two fields">
               <div class="field">
                 <label for="nim">Nomor Induk Mahasiswa</label>
@@ -56,56 +88,21 @@ date_default_timezone_set("Asia/Jakarta");
               </div>
             </div>
             <div class="inline field">
-              <div class="ui checkbox">
-                <input type="checkbox" tabindex="0" id="seminar1" name="seminar">
-                <label for="seminar1">Seminar 1</label>
-              </div>
+              <label for="seminar">Nama Seminar</label>
+              <select class="ui fluid search dropdown" name="seminar" multiple>
+                <option value="">Pilih Seminar</option>
+                <option value="seminar1">Seminar 1</option>
+                <option value="seminar2">Seminar 2</option>
+                <option value="seminar3">Seminar 3</option>
+                <option value="seminar4">Seminar 4</option>
+              </select>
             </div>
-            <div class="inline field">
-              <div class="ui checkbox">
-                <input type="checkbox" tabindex="0" id="seminar2" name="seminar">
-                <label for="seminar2">Seminar 2</label>
-              </div>
-            </div>
-            <div class="inline field">
-              <div class="ui checkbox">
-                <input type="checkbox" tabindex="0" id="seminar3" name="seminar">
-                <label for="seminar3">Seminar 3</label>
-              </div>
-            </div>
-            <div class="inline field">
-              <div class="ui checkbox">
-                <input type="checkbox" tabindex="0" id="seminar4" name="seminar">
-                <label for="seminar4">Seminar 4</label>
-              </div>
-            </div>
-          </div>
-          <div class="ui two bottom attached buttons">
-            <input class="ui button" type="reset" value="Bersihkan">
-            <input class="ui primary button" type="submit" name="simpan" value="Simpan">
-          </div>
+          </form>
         </div>
-      </form>
-    </div>
-    <div class="eight wide column">
-      <div class="ui raised yellow segment">
-        <h4 class="ui dividing header">Pendaftar Terkini (<?php echo date('d-m-Y') ?>)</h4>
-        <table class="ui padded selectable very basic table">
-          <thead>
-            <tr>
-              <th>NIM</th>
-              <th>Nama</th>
-              <th>Program Studi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>0</td>
-              <td>Belum ada data</td>
-              <td>-</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="actions">
+          <input class="ui button" type="reset" value="Bersihkan">
+          <input class="ui primary right button" type="submit" name="simpan" value="Simpan">
+        </div>
       </div>
     </div>
   </div>

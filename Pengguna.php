@@ -7,8 +7,11 @@ date_default_timezone_set("Asia/Jakarta");
     <div class="item">
       <img src="resources/images/logo_bl.png">
     </div>
-    <a href="TambahPeserta.php" class="item">Tambah Peserta</a>
-    <a href="PesertaTerdaftar.php" class="item">Peserta Terdaftar</a>
+    <div class="ui dropdown item">Peserta Terdaftar <i class="dropdown icon"></i>
+      <div class="menu">
+        <a href="Peserta.php" class="item">Peserta Seminar 1</a>
+      </div>
+    </div>
     <div class="ui dropdown item">Halaman Admin <i class="dropdown icon"></i>
       <div class="menu">
         <a href="Seminar.php" class="item">Seminar</a>
