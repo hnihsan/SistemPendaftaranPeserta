@@ -10,7 +10,8 @@
       }
     });
     $('.ui.dropdown').dropdown();
-    $('.ui.modal').modal('attach events', '.tambah.button', 'show');
+    $('#tambah').modal('attach events', '.tambah.button', 'show');
+    $('#ubah').modal('attach events', '.ubah.button', 'show');
   } );
   </script>
 </body>

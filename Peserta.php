@@ -43,14 +43,14 @@ date_default_timezone_set("Asia/Jakarta");
                 <td>Belum ada data</td>
                 <td>Belum ada data</td>
                 <td>-</td>
-                <td><a href="#">Ubah</a></td>
+                <td class="selectable"><a href="#" class="ubah">Ubah</a></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="ui bottom attached primary tambah button" tabindex="0">Tambah Peserta</div>
       </div>
-      <div class="ui modal">
+      <div class="ui modal" id="tambah">
         <i class="close icon"></i>
         <div class="header">
           Tambah Peserta
@@ -87,15 +87,25 @@ date_default_timezone_set("Asia/Jakarta");
                 <input id="jurusan" type="text" name="jurusan" required="" readonly>
               </div>
             </div>
-            <div class="inline field">
-              <label for="seminar">Nama Seminar</label>
-              <select class="ui fluid search dropdown" name="seminar" multiple>
-                <option value="">Pilih Seminar</option>
-                <option value="seminar1">Seminar 1</option>
-                <option value="seminar2">Seminar 2</option>
-                <option value="seminar3">Seminar 3</option>
-                <option value="seminar4">Seminar 4</option>
-              </select>
+            <div class="two fields">
+              <div class="field">
+                <label for="seminar">Nama Seminar</label>
+                <select class="ui fluid search dropdown" name="seminar" multiple>
+                  <option value="">Pilih Seminar</option>
+                  <option value="seminar1">Seminar 1</option>
+                  <option value="seminar2">Seminar 2</option>
+                  <option value="seminar3">Seminar 3</option>
+                  <option value="seminar4">Seminar 4</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="status">Status Pembayaran</label>
+                <select class="ui fluid dropdown" name="status">
+                  <option value="">Pilih Status</option>
+                  <option value="0">Belum Bayar</option>
+                  <option value="1">Sudah Bayar</option>
+                </select>
+              </div>
             </div>
           </form>
         </div>

@@ -43,14 +43,14 @@ date_default_timezone_set("Asia/Jakarta");
                 <td>Belum ada data</td>
                 <td>Belum ada data</td>
                 <td>Belum ada data</td>
-                <td><a href="#">Ubah</a></td>
+                <td class="selectable"><a href="#" class="ubah">Ubah</a></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="ui bottom attached primary tambah button" tabindex="0">Tambah Pengguna</div>
       </div>
-      <div class="ui modal">
+      <div class="ui modal" id="tambah">
         <i class="close icon"></i>
         <div class="header">
           Tambah Pengguna
