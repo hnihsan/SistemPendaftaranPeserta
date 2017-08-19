@@ -178,7 +178,7 @@ date_default_timezone_set("Asia/Jakarta");
         </div>
         <div class="actions">
           <input class="ui button" type="reset" value="Bersihkan">
-          <input class="ui primary right button" type="submit" name="simpan" value="Simpan">
+          <input class="ui primary right button" type="submit" name="update" value="Perbarui">
         </div>
       </div>
     </div>
