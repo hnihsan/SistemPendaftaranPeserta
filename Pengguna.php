@@ -43,7 +43,7 @@ date_default_timezone_set("Asia/Jakarta");
                 <td>Belum ada data</td>
                 <td>Belum ada data</td>
                 <td>Belum ada data</td>
-                <td class="selectable"><a href="#" class="ubah">Ubah</a></td>
+                <td><a class="ui compact basic ubah button">Ubah</a></td>
               </tr>
             </tbody>
           </table>

@@ -89,10 +89,7 @@ date_default_timezone_set("Asia/Jakarta");
               </div>
               <div class="field">
                 <label for="email">Narasumber</label>
-                <div class="ui action input">
-                  <input id="narasumber" type="text" name="narasumber" required="" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
-                  <button class="ui button">Pilih</button>
-                </div>
+                <input id="narasumber" type="text" name="narasumber" required="" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
               </div>
             </div>
           </form>
@@ -136,9 +133,7 @@ date_default_timezone_set("Asia/Jakarta");
               </div>
               <div class="field">
                 <label for="email">Narasumber</label>
-                <div class="ui action input">
-                  <input id="narasumber" type="text" name="narasumber" required="" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
-                  <button class="ui button">Pilih</button>
+                <input id="narasumber" type="text" name="narasumber" required="" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
                 </div>
               </div>
             </div>
