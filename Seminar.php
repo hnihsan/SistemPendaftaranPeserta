@@ -27,7 +27,7 @@ date_default_timezone_set("Asia/Jakarta");
       <div class="ui raised segments">
         <div class="ui yellow attached segment">
           <h4 class="ui dividing header">Daftar Seminar</h4>
-          <table class="ui padded selectable very basic table" id="table1">
+          <table class="ui padded selectable very basic unstackable table" id="table1">
             <thead>
               <tr>
                 <th>ID</th>
@@ -46,7 +46,7 @@ date_default_timezone_set("Asia/Jakarta");
                 <td>Belum ada data</td>
                 <td>-</td>
                 <td>
-                  <a class="ui compact basic ubah button">Ubah</a>
+                  <a class="ui compact ubah button">Ubah</a>
                   <a class="ui compact negative button">Hapus</a>
                 </td>
               </tr>
@@ -134,7 +134,6 @@ date_default_timezone_set("Asia/Jakarta");
               <div class="field">
                 <label for="email">Narasumber</label>
                 <input id="narasumber" type="text" name="narasumber" required="" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
-                </div>
               </div>
             </div>
           </form>

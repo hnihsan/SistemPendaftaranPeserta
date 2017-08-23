@@ -27,7 +27,7 @@ date_default_timezone_set("Asia/Jakarta");
       <div class="ui raised segments">
         <div class="ui yellow segment">
           <h4 class="ui dividing header">Daftar Pengguna</h4>
-          <table class="ui padded selectable very basic table" id="table1">
+          <table class="ui padded selectable very basic unstackable table" id="table1">
             <thead>
               <tr>
                 <th>ID</th>
@@ -43,7 +43,7 @@ date_default_timezone_set("Asia/Jakarta");
                 <td>Belum ada data</td>
                 <td>Belum ada data</td>
                 <td>Belum ada data</td>
-                <td><a class="ui compact basic ubah button">Ubah</a></td>
+                <td><a class="ui compact ubah button">Ubah</a></td>
               </tr>
             </tbody>
           </table>

@@ -27,7 +27,7 @@ date_default_timezone_set("Asia/Jakarta");
       <div class="ui raised segments">
         <div class="ui yellow segment">
           <h4 class="ui dividing header">Daftar Peserta Terdaftar</h4>
-          <table class="ui padded selectable very basic table" id="table1">
+          <table class="ui padded selectable very basic unstackable table" id="table1">
             <thead>
               <tr>
                 <th>NIM</th>
@@ -44,7 +44,7 @@ date_default_timezone_set("Asia/Jakarta");
                 <td>Belum ada data</td>
                 <td>-</td>
                 <td>
-                  <a class="ui compact basic ubah button">Ubah</a>
+                  <a class="ui compact ubah button">Ubah</a>
                   <a class="ui compact negative button">Hapus</a>
                 </td>
               </tr>
@@ -90,25 +90,15 @@ date_default_timezone_set("Asia/Jakarta");
                 <input id="jurusan" type="text" name="jurusan" required="" readonly>
               </div>
             </div>
-            <div class="two fields">
-              <div class="field">
-                <label for="seminar">Nama Seminar</label>
-                <select class="ui fluid search dropdown" name="seminar" multiple>
-                  <option value="">Pilih Seminar</option>
-                  <option value="seminar1">Seminar 1</option>
-                  <option value="seminar2">Seminar 2</option>
-                  <option value="seminar3">Seminar 3</option>
-                  <option value="seminar4">Seminar 4</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="status">Status Pembayaran</label>
-                <select class="ui fluid dropdown" name="status">
-                  <option value="">Pilih Status</option>
-                  <option value="0">Belum Bayar</option>
-                  <option value="1">Sudah Bayar</option>
-                </select>
-              </div>
+            <div class="field">
+              <label for="seminar">Nama Seminar</label>
+              <select class="ui fluid search dropdown" name="seminar" multiple>
+                <option value="">Pilih Seminar</option>
+                <option value="seminar1">Seminar 1</option>
+                <option value="seminar2">Seminar 2</option>
+                <option value="seminar3">Seminar 3</option>
+                <option value="seminar4">Seminar 4</option>
+              </select>
             </div>
           </form>
         </div>
@@ -169,8 +159,8 @@ date_default_timezone_set("Asia/Jakarta");
                 <label for="status">Status Pembayaran</label>
                 <select class="ui fluid dropdown" name="status">
                   <option value="">Pilih Status</option>
-                  <option value="0">Belum Bayar</option>
-                  <option value="1">Sudah Bayar</option>
+                  <option value="1">Hadir</option>
+                  <option value="0">Batal Hadir</option>
                 </select>
               </div>
             </div>
