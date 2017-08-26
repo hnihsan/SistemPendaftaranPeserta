@@ -54,7 +54,6 @@ date_default_timezone_set("Asia/Jakarta");
         <div class="ui bottom attached primary tambah button" tabindex="0">Tambah Peserta</div>
       </div>
       <div class="ui modal" id="tambah">
-        <i class="close icon"></i>
         <div class="header">
           Tambah Peserta
         </div>
@@ -108,7 +107,6 @@ date_default_timezone_set("Asia/Jakarta");
         </div>
       </div>
       <div class="ui modal" id="ubah">
-        <i class="close icon"></i>
         <div class="header">
           Ubah Peserta
         </div>
