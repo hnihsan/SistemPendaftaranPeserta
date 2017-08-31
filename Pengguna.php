@@ -19,7 +19,11 @@ date_default_timezone_set("Asia/Jakarta");
       </div>
     </div>
     <div class="right menu">
-      <a href="#" class="item"><i class="sign out icon"></i> Keluar</a>
+      <div class="ui dropdown item">Admin <i class="dropdown icon"></i>
+          <div class="menu">
+              <a href="index.php" class="item">Keluar</a>
+          </div>
+      </div>
     </div>
   </div>
   <div class="ui stackable main container grid">
