@@ -14,6 +14,34 @@
     $('.ui.dropdown').dropdown();
     $('#tambah').modal('attach events', '.tambah.button', 'show');
     $('#ubah').modal('attach events', '.ubah.button', 'show');
+    $('#tambahSukses'.swal('Berhasi!', 'Data sudah ditambahkan!', 'success'));
+    $('#ubahSukses'.swal('Berhasi!', 'Data sudah ditambahkan!', 'success'));
+    $('#konfirmasiHapus'.swal({
+        title: 'Apa Anda yakin menghapus data ini?',
+        text: "Jika terhapus maka data tidak akan kembali lagi!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus saja!'
+        cancelButtonText: 'Batal'
+    }).then(function () {
+        swal(
+            'Terhapus!',
+            'Data sudah terhapus.',
+            'success'
+        )
+    }, function (dismiss) {
+        // dismiss can be 'cancel', 'overlay',
+        // 'close', and 'timer'
+        if (dismiss === 'cancel') {
+            swal(
+                'Dibatalkan',
+                'Data tidak jadi dihapus',
+                'error'
+            )
+        }
+    }))
   } );
   </script>
 </body>
