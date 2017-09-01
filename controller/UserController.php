@@ -1,5 +1,11 @@
 <?php
 include "../koneksi.php";
+
+session_start();
+if(empty($_SESSION['username'])){
+  //header("Location: index.php?msg=session_over");
+}
+
 date_default_timezone_set("Asia/Jakarta");
 
 if(isset($_POST['postUsers'])){
@@ -8,16 +14,17 @@ if(isset($_POST['postUsers'])){
       $username= $_POST['username'];
       $password= md5($_POST['password']);
       $fullname= $_POST['fullname'];;
-      $photo= $_POST['photo'];
       $phone= $_POST['phone'];
       $email= $_POST['email'];
 
-      $query = "INSERT INTO users (username,password,fullname,photo,phone,email) VALUES('$username','$password','$fullname','$photo','$phone','$email')";
-      if ($conn->query($query) === TRUE) {
-        echo "berhasil, tinggal lempar ke index info";
+      $query = "INSERT INTO users (username,password,fullname,phone,email) VALUES(?,?,?,?,?)";
+      $data = [$username,$password,$fullname,$phone,$email];
+      if ($conn->prepare($query)->execute($data) === TRUE) {
+        header("Location: ../Pengguna.php?msg=1");
+      //  echo "Berhasil";
       }else{
-        echo "gagal, tinggal lempar ke index";
-        echo $conn->error;
+        header("Location: ../Pengguna.php?msg=2");
+      //  echo "gagal, tinggal lempar ke index";
       }
       break;
 
@@ -25,27 +32,32 @@ if(isset($_POST['postUsers'])){
       $username= $_POST['username'];
       $password= md5($_POST['password']);
       $fullname= $_POST['fullname'];;
-      $photo= $_POST['photo'];
       $phone= $_POST['phone'];
       $email= $_POST['email'];
 
-      $query = "UPDATE users set password='$password', fullname='$fullname', photo='$photo', phone='$phone', email='$email' WHERE username='$username'";
-      if ($conn->query($query) === TRUE) {
-        echo "berhasil, tinggal lempar ke index info";
+      $query = "UPDATE users set password=?, fullname=?, phone=?, email=? WHERE username=?";
+      $data = [$password,$fullname,$phone,$email,$username];
+      if ($conn->prepare($query)->execute($data) == TRUE) {
+        header("Location: ../Pengguna.php?msg=3");
+        // echo "berhasil, tinggal lempar ke index info";
       }else{
-        echo "gagal, tinggal lempar ke index<br>";
-        echo $conn->error;
+        header("Location: ../Pengguna.php?msg=4");
+        //echo "gagal, tinggal lempar ke index<br>";
+        // echo $conn->error;
       }
       break;
 
     case 'delete' :
       $username= $_POST['username'];
 
-      $query="DELETE FROM users WHERE username='$username'";
-      if ($conn->query($query) === TRUE) {
-        echo "berhasil, tinggal lempar ke index info";
+      $query="DELETE FROM users WHERE username=?";
+      $data = [$username];
+      if ($conn->prepare($query)->execute($data) == TRUE) {
+        header("Location: ../Pengguna.php?msg=5");
+        //echo "berhasil, tinggal lempar ke index info";
       }else{
-        echo "gagal, tinggal lempar ke index";
+        header("Location: ../Pengguna.php?msg=6");
+        // echo "gagal, tinggal lempar ke index";
       }
       break;
 

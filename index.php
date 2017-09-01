@@ -1,3 +1,9 @@
+<?php session_start();
+if(!empty($_SESSION['username'])){
+  header("Location: Peserta.php");
+}
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,7 +76,8 @@
         Sistem Pendaftaran Seminar
       </div>
     </h2>
-    <form class="ui large form">
+    <form action="controller/LoginController.php" method="post" class="ui large form">
+      <input type="hidden" name="postLogin" value="1">
       <div class="ui raised segments">
         <div class="ui yellow attached segment">
           <div class="field">

@@ -1,5 +1,10 @@
 <?php
 include "../koneksi.php";
+session_start();
+if(!isset($_SESSION[username])){
+  header("Location: index.php?session_over=#");
+}
+
 date_default_timezone_set("Asia/Jakarta");
 
 if(isset($_POST['postJurusan'])){
