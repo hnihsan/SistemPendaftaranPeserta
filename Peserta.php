@@ -49,7 +49,6 @@ date_default_timezone_set("Asia/Jakarta");
                         <td>-</td>
                         <td>
                             <a class="ui compact ubah button">Ubah</a>
-                            <a class="ui compact negative button">Hapus</a>
                         </td>
                     </tr>
                     </tbody>
@@ -66,17 +65,20 @@ date_default_timezone_set("Asia/Jakarta");
                     <div class="two fields">
                         <div class="field">
                             <label for="nim">Nomor Induk Mahasiswa</label>
-                            <input id="nim" type="text" name="nim" required="" maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                            <input id="nim" type="text" name="nim" required="" maxlength="10"
+                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         </div>
                         <div class="field">
                             <label for="fullname">Nama Peserta</label>
-                            <input id="fullname" type="text" name="fullname" required="" maxlength="50" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                            <input id="fullname" type="text" name="fullname" required="" maxlength="50"
+                                   onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
                         </div>
                     </div>
                     <div class="two fields">
                         <div class="field">
                             <label for="phone">Nomor Telepon</label>
-                            <input id="phone" type="text" name="phone" required="" maxlength="17" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                            <input id="phone" type="text" name="phone" required="" maxlength="17"
+                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         </div>
                         <div class="field">
                             <label for="email">Alamat Email</label>
@@ -95,7 +97,7 @@ date_default_timezone_set("Asia/Jakarta");
                     </div>
                     <div class="field">
                         <label for="seminar">Nama Seminar</label>
-                        <select class="ui fluid search dropdown" name="seminar" multiple>
+                        <select class="ui fluid search dropdown" name="seminar" multiple title="seminar">
                             <option value="">Pilih Seminar</option>
                             <option value="seminar1">Seminar 1</option>
                             <option value="seminar2">Seminar 2</option>
@@ -119,17 +121,20 @@ date_default_timezone_set("Asia/Jakarta");
                     <div class="two fields">
                         <div class="field">
                             <label for="nim">Nomor Induk Mahasiswa</label>
-                            <input id="nim" type="text" name="nim" required="" maxlength="10" readonly onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                            <input id="nim" type="text" name="nim" required="" maxlength="10" readonly
+                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         </div>
                         <div class="field">
                             <label for="fullname">Nama Peserta</label>
-                            <input id="fullname" type="text" name="fullname" required="" maxlength="50" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                            <input id="fullname" type="text" name="fullname" required="" maxlength="50"
+                                   onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
                         </div>
                     </div>
                     <div class="two fields">
                         <div class="field">
                             <label for="phone">Nomor Telepon</label>
-                            <input id="phone" type="text" name="phone" required="" maxlength="17" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                            <input id="phone" type="text" name="phone" required="" maxlength="17"
+                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         </div>
                         <div class="field">
                             <label for="email">Alamat Email</label>
@@ -149,7 +154,7 @@ date_default_timezone_set("Asia/Jakarta");
                     <div class="two fields">
                         <div class="field">
                             <label for="seminar">Nama Seminar</label>
-                            <select class="ui fluid search dropdown" name="seminar" multiple>
+                            <select class="ui fluid search dropdown" name="seminar" title="seminar" multiple>
                                 <option value="">Pilih Seminar</option>
                                 <option value="seminar1">Seminar 1</option>
                                 <option value="seminar2">Seminar 2</option>
@@ -159,7 +164,7 @@ date_default_timezone_set("Asia/Jakarta");
                         </div>
                         <div class="field">
                             <label for="status">Status Pembayaran</label>
-                            <select class="ui fluid dropdown" name="status">
+                            <select class="ui fluid dropdown" name="status" title="status">
                                 <option value="">Pilih Status</option>
                                 <option value="1">Hadir</option>
                                 <option value="0">Batal Hadir</option>

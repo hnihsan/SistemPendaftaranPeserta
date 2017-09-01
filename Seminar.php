@@ -92,8 +92,9 @@ date_default_timezone_set("Asia/Jakarta");
                             <input id="kuota" type="number" name="kuota" required="" max="300">
                         </div>
                         <div class="field">
-                            <label for="email">Narasumber</label>
-                            <input id="narasumber" type="text" name="narasumber" required="" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                            <label for="narasumber">Narasumber</label>
+                            <input id="narasumber" type="text" name="narasumber" required=""
+                                   onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
                         </div>
                     </div>
                 </form>
@@ -137,7 +138,8 @@ date_default_timezone_set("Asia/Jakarta");
                         </div>
                         <div class="field">
                             <label for="email">Narasumber</label>
-                            <input id="narasumber" type="text" name="narasumber" required="" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                            <input id="narasumber" type="text" name="narasumber" required=""
+                                   onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
                         </div>
                     </div>
                 </form>

@@ -23,7 +23,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="eb98e72e-787f-4638-8f05-222c4096c1b3">
+        <schema name="SeminaryRegist" object-types="table, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="eb98e72e-787f-4638-8f05-222c4096c1b3">
@@ -35,6 +39,9 @@
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
+  </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/seminaryRegist.sql" connection-id="eb98e72e-787f-4638-8f05-222c4096c1b3" current-schema="SeminaryRegist" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
@@ -137,7 +144,7 @@
       <general>
         <display-mode value="TABBED" />
         <navigation-history-size value="100" />
-        <show-object-details value="false" />
+        <show-object-details value="true" />
       </general>
       <filters>
         <object-type-filter>
@@ -522,7 +529,7 @@
           <connection-tabs value="true" />
           <dialog-headers value="true" />
           <object-editor-tabs value="true" />
-          <script-editor-tabs value="false" />
+          <script-editor-tabs value="true" />
           <execution-result-tabs value="true" />
         </visibility-settings>
       </environment>
