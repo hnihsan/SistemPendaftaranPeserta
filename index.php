@@ -1,4 +1,6 @@
 <?php session_start();
+include "koneksi.php";
+
 if(!empty($_SESSION['username'])){
   header("Location: Peserta.php");
 }
@@ -16,6 +18,9 @@ if(!empty($_SESSION['username'])){
   <link rel="stylesheet" type="text/css" href="resources/semantic/semantic.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="resources/semantic/semantic.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="resources/css/sweetalert2.min.css">
+  <script src="resources/js/sweetalert2.min.js"></script>
+
   <style type="text/css">
     body > .grid {
       height: 100%;
@@ -67,7 +72,7 @@ if(!empty($_SESSION['username'])){
   </script>
 </head>
 <body>
-
+<?php include "msg_log.php";?>
 <div class="ui middle aligned center aligned grid">
   <div class="column">
     <h2 class="ui blue image header">

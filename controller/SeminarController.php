@@ -2,7 +2,7 @@
 include "../koneksi.php";
 session_start();
 if(empty($_SESSION['username'])){
-//  header("Location: index.php?session_over=#");
+  header("Location: index.php?msg=300");
 }
 
 date_default_timezone_set("Asia/Jakarta");
@@ -19,11 +19,9 @@ if(isset($_POST['postSeminar'])){
       $query = "INSERT INTO seminar (nama,waktu,tempat,narasumber,kuota) VALUES(?,?,?,?,?)";
       $data=[$nama,$waktu,$tempat,$narasumber,$kuota];
       if ($conn->prepare($query)->execute($data) == TRUE) {
-        header("Location: ../Seminar.php?msg=7");
-        //echo "berhasil, tinggal lempar ke index info";
+        header("Location: ../Seminar.php?msg=102");
       }else{
-        header("Location: ../Seminar.php?msg=8");
-        //echo "gagal, tinggal lempar ke index";
+        header("Location: ../Seminar.php?msg=202");
       }
       break;
 
@@ -38,26 +36,24 @@ if(isset($_POST['postSeminar'])){
       $query = "UPDATE seminar set nama=?, waktu=?,tempat=?,narasumber=?,kuota=? where id=? ";
       $data=[$nama,$waktu,$tempat,$narasumber,$kuota,$id];
       if ($conn->prepare($query)->execute($data) == TRUE) {
-        header("Location: ../Seminar.php?msg=9");
+        header("Location: ../Seminar.php?msg=112");
       }else{
-        header("Location: ../Seminar.php?msg=10");
-        echo $conn->error;
+        header("Location: ../Seminar.php?msg=212");
       }
       break;
     case 'delete' :
       $id=$_POST['id'];
-      $query ="DELETE FROM seminar where id=".$id;      
+      $query ="DELETE FROM seminar where id=".$id;
       if ($conn->query($query) == TRUE) {
-        header("Location: ../Seminar.php?msg=11");
+        header("Location: ../Seminar.php?msg=122");
       }else{
-        header("Location: ../Seminar.php?msg=12");
-        echo $conn->error;
+        header("Location: ../Seminar.php?msg=222");
       }
       break;
     default :
-      echo "Error here ...";
+      header("Location: ../Seminar.php?msg=299");
   }
 }else{
-  echo "Error Here ..";
+  header("Location: ../Seminar.php?msg=299");
 }
 ?>

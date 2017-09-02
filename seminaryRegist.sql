@@ -36,7 +36,8 @@ CREATE TABLE peserta (
   status tinyint(1) DEFAULT 1,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY(id)
+  PRIMARY KEY(id),
+  UNIQUE KEY `nim_per_idseminar` (`id_seminar`,`nim`)
 );
 
 CREATE TABLE jurusan (
@@ -108,10 +109,13 @@ INSERT INTO msg_log (id,type,header,body) VALUES
 (221,'error', 'Oops :(', 'Gagal menghapus Pengguna, terjadi kesalahan.'),
 (222,'error', 'Oops :(', 'Gagal menghapus Seminar, terjadi kesalahan.'),
 (223,'error', 'Oops :(', 'Gagal menghapus Peserta, terjadi kesalahan.') ,
+(233,'warning', 'Hmm..', 'Peserta tersebut sudah terdaftar.') ,
 
 
 (299,'error', 'Oops :(', 'Gagal menambah data, Isi kembali dengan benar'),
-(300,'error', 'Oops :(', 'Oops! Login terlebih dahulu !');
+
+(300,'error', 'Oops :(', 'Login terlebih dahulu !'),
+(301,'error', 'Oops :(', 'Kombinasi Username dan Password salah');
 
 ###############################################
 #  FOREIGN_KEY #

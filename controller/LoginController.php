@@ -12,12 +12,17 @@ if(isset($_POST['postLogin'])){
   if ($conn->query($query)->fetchAll() == TRUE) {
     $data=$conn->query($query)->fetchAll();
     $_SESSION['username']=$data[0]['username'];
-    $_SESSION['name']=$data[0]['fullname'];
-
+    $_SESSION['fullname']=$data[0]['fullname'];
+    $nick=explode(' ',$data[0]['fullname']);
+    $_SESSION['nickname']=$nick[0];
     header("Location: ../Peserta.php");
   }else{
-    header("Location: ../index.php?msg=20");
+    header("Location: ../index.php?msg=301");
   }
+}else if(isset($_POST['postLogout'])){
+  session_unset();
+  session_destroy();
+  header("Location: ../index.php");
 }else{
-  header("Location: ../index.php?msg=20");
+  header("Location: ../index.php?msg=300");
 }

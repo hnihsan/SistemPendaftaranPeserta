@@ -15,12 +15,9 @@ function editSeminar($str) {
      }
  });
 }
-
-function hapusSeminar($str){
-  document.getElementById("idhapus").value = $str;
-}
 </script>
   <!--Menu-->
+
   <div class="ui stackable main container grid">
     <div class="sixteen width column">
       <div class="ui raised segments">
@@ -62,7 +59,7 @@ function hapusSeminar($str){
                 echo "<td>".$row['kuota']."</td>"; ?>
                 <td>
                   <button onclick="editSeminar(this.value)" value="<?php echo $row['id']; ?>" class="ui compact ubah button">Ubah</button>
-                  <button onclick="hapusSeminar(this.value)" value="<?php echo $row['id']; ?>" class="ui compact hapus negative button">Hapus</button>
+                  <button onclick="deleteSeminar(this.value)" value="<?php echo $row['id']; ?>" class="ui compact hapus negative button">Hapus</button>
                 </td>
         <?php  }
             }
@@ -123,28 +120,41 @@ function hapusSeminar($str){
         <div class="content">
           <div class="fetched-data"></div>
         </div>
-    </div>
-    <div class="ui modal" id="hapus">
-      <i class="close icon"></i>
-      <div class="header">
-        Hapus Seminar
       </div>
-      <div class="content">
-        <form class="ui form" action="controller/SeminarController.php" method="post">
-          <input type="hidden" name="postSeminar" value="1">
-          <input type="hidden" name="type" value="delete">
-          <input type="hidden" id="idhapus" name="id" value="">
-          <h4>Yakin ingin menghapus ? </h4>
-      <div class="actions">
-        <div class="ui default right button">Batal</div>
-        <input class="ui negative right button" type="submit" name="simpan" value="Hapus">
-      </div>
-    </form>
-    </div>
-  </div>
-</div>
-</div>
-  <script type="text/javascript">
 
-  </script>
+</div>
+</div>
 <?php include 'footer.php'; ?>
+<script type="text/javascript">
+function deleteSeminar($str){
+  swal({
+    title: 'Yakin?',
+    text: 'Data yang dihapus tidak bisa dikembalikan.',
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Ya, hapus!',
+    cancelButtonText: 'Tidak, simpan data.'
+  }).then(function() {
+    $.post("controller/SeminarController.php",
+        {
+          postSeminar: "1",
+          type: "delete",
+          id: $str
+        },
+        function(){
+            window.location.href = "Seminar.php?msg=122";
+        });
+
+},function(dismiss) {
+  // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+  if (dismiss === 'cancel') {
+    swal(
+      'Dibatalkan',
+      'Data tetap aman :)',
+      'error'
+    )
+  }
+  })
+
+};
+</script>

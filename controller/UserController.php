@@ -3,7 +3,7 @@ include "../koneksi.php";
 
 session_start();
 if(empty($_SESSION['username'])){
-  //header("Location: index.php?msg=session_over");
+ header("Location: index.php?msg=300");
 }
 
 date_default_timezone_set("Asia/Jakarta");
@@ -20,11 +20,9 @@ if(isset($_POST['postUsers'])){
       $query = "INSERT INTO users (username,password,fullname,phone,email) VALUES(?,?,?,?,?)";
       $data = [$username,$password,$fullname,$phone,$email];
       if ($conn->prepare($query)->execute($data) === TRUE) {
-        header("Location: ../Pengguna.php?msg=1");
-      //  echo "Berhasil";
+        header("Location: ../Pengguna.php?msg=101");
       }else{
-        header("Location: ../Pengguna.php?msg=2");
-      //  echo "gagal, tinggal lempar ke index";
+        header("Location: ../Pengguna.php?msg=201");
       }
       break;
 
@@ -38,12 +36,9 @@ if(isset($_POST['postUsers'])){
       $query = "UPDATE users set password=?, fullname=?, phone=?, email=? WHERE username=?";
       $data = [$password,$fullname,$phone,$email,$username];
       if ($conn->prepare($query)->execute($data) == TRUE) {
-        header("Location: ../Pengguna.php?msg=3");
-        // echo "berhasil, tinggal lempar ke index info";
+        header("Location: ../Pengguna.php?msg=111");
       }else{
-        header("Location: ../Pengguna.php?msg=4");
-        //echo "gagal, tinggal lempar ke index<br>";
-        // echo $conn->error;
+        header("Location: ../Pengguna.php?msg=211");
       }
       break;
 
@@ -52,19 +47,18 @@ if(isset($_POST['postUsers'])){
 
       $query="DELETE FROM users WHERE username=?";
       $data = [$username];
+
       if ($conn->prepare($query)->execute($data) == TRUE) {
-        header("Location: ../Pengguna.php?msg=5");
-        //echo "berhasil, tinggal lempar ke index info";
+        header("Location: ../Pengguna.php?msg=121");
       }else{
-        header("Location: ../Pengguna.php?msg=6");
-        // echo "gagal, tinggal lempar ke index";
+        header("Location: ../Pengguna.php?msg=221");
       }
       break;
 
     default :
-      echo "Error here ...(Wrong type)";
+      header("Location: ../Pengguna.php?msg=299");
   }
 }else{
-  echo "Error Here ..";
+  header("Location: ../Pengguna.php?msg=299");
 }
 ?>

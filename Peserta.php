@@ -2,6 +2,20 @@
 include "head.php";
 date_default_timezone_set("Asia/Jakarta");
 ?>
+<script type="text/javascript">
+function editPeserta($str) {
+ var rowid = $str;
+ //menggunakan fungsi ajax untuk pengambilan data
+ $.ajax({
+     type : 'post',
+     url : 'component/peserta-edit-modal.php',
+     data :  'id='+ rowid,
+     success : function(data){
+     $('.fetched-data').html(data);//menampilkan data ke dalam modal
+     }
+ });
+}
+</script>
   <div class="ui stackable main container grid">
     <div class="sixteen width column">
       <div class="ui raised segments">
@@ -36,8 +50,7 @@ date_default_timezone_set("Asia/Jakarta");
                       <?php if($row['status']==1){$status='Hadir';}else{$status='Cancel';} ?>
                       <td><?php echo $status; ?></td>
                       <td>
-                        <a class="ui compact ubah button">Ubah</a>
-                        <a id="hapus" class="ui compact negative button">Hapus</a>
+                        <button onclick="editPeserta(this.value)" value="<?php echo $row['id']; ?>" class="ui compact ubah button">Ubah</button>
                       </td>
                     </tr>
                     <?php  }
@@ -47,10 +60,7 @@ date_default_timezone_set("Asia/Jakarta");
                         <td>Belum ada data</td>
                         <td>Belum ada data</td>
                         <td>-</td>
-                        <td>
-                          <a class="ui compact ubah button">Ubah</a>
-                          <a class="ui compact negative button">Hapus</a>
-                        </td>
+                        <td>-</td>
                       </tr>
                       <?php  }
                 }else{
@@ -73,7 +83,7 @@ date_default_timezone_set("Asia/Jakarta");
                 <div class="two fields">
                   <div class="field">
                     <label for="nim">Nomor Induk Mahasiswa</label>
-                    <input id="nim" type="text" name="nim" required="" maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                    <input id="nim" type="text" name="nim" required="" minlength="10" maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                   </div>
                   <div class="field">
                     <label for="fullname">Nama Peserta</label>
@@ -113,62 +123,7 @@ date_default_timezone_set("Asia/Jakarta");
           Ubah Peserta
         </div>
         <div class="content">
-          <form class="ui form" action="Peserta.php" method="post">
-            <div class="two fields">
-              <div class="field">
-                <label for="nim">Nomor Induk Mahasiswa</label>
-                <input id="nim" type="text" name="nim" required="" maxlength="10" readonly onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-              </div>
-              <div class="field">
-                <label for="fullname">Nama Peserta</label>
-                <input id="fullname" type="text" name="fullname" required="" maxlength="50" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
-              </div>
-            </div>
-            <div class="two fields">
-              <div class="field">
-                <label for="phone">Nomor Telepon</label>
-                <input id="phone" type="text" name="phone" required="" maxlength="17" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-              </div>
-              <div class="field">
-                <label for="email">Alamat Email</label>
-                <input id="email" type="text" name="email" required="" maxlength="100">
-              </div>
-            </div>
-            <div class="two fields">
-              <div class="field">
-                <label for="fakultas">Fakultas</label>
-                <input id="fakultas" type="text" name="fakultas" required="" readonly>
-              </div>
-              <div class="field">
-                <label for="jurusan">Jurusan</label>
-                <input id="jurusan" type="text" name="jurusan" required="" readonly>
-              </div>
-            </div>
-            <div class="two fields">
-              <div class="field">
-                <label for="seminar">Nama Seminar</label>
-                <select class="ui fluid search dropdown" name="seminar" multiple>
-                  <option value="">Pilih Seminar</option>
-                  <option value="seminar1">Seminar 1</option>
-                  <option value="seminar2">Seminar 2</option>
-                  <option value="seminar3">Seminar 3</option>
-                  <option value="seminar4">Seminar 4</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="status">Status Pembayaran</label>
-                <select class="ui fluid dropdown" name="status">
-                  <option value="">Pilih Status</option>
-                  <option value="1">Hadir</option>
-                  <option value="0">Batal Hadir</option>
-                </select>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="actions">
-          <input class="ui button" type="reset" value="Bersihkan">
-          <input class="ui primary right button" type="submit" name="update" value="Perbarui">
+          <div class="fetched-data"></div>
         </div>
       </div>
     </div>

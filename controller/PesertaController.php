@@ -2,7 +2,7 @@
 include "../koneksi.php";
 session_start();
 if(empty($_SESSION['username'])){
-  //header("Location: index.php?session_over=#");
+  header("Location: index.php?msg=300");
 }
 
 date_default_timezone_set("Asia/Jakarta");
@@ -26,30 +26,22 @@ if(isset($_POST['postPeserta'])){
       $fullname= $_POST['fullname'];
       $phone= $_POST['phone'];
       $email= $_POST['email'];
-      $petugas=  'hnihsan';//$_SESSION['username'];
+      $petugas=  $_SESSION['username'];
       $jurusan= new jurusan;
       $idjurusan=$jurusan->getJurusan($nim);
       if(empty($seminar)){
-         header("Location: ../TambahPeserta.php?msg=20");
+         header("Location: ../Peserta.php?msg=299");
       }else{
         foreach($seminar as $sem){
           $query = "INSERT INTO peserta (id_seminar,nim,fullname,jurusan,phone,email,petugas) VALUES(?,?,?,?,?,?,?)";
           $data = [$sem,$nim,$fullname,$idjurusan,$phone,$email,$petugas];
-          /*if ($conn->prepare($query)->execute($data) == TRUE) {
-            header("Location: ../Peserta.php?msg=13");
-            echo "berhasil, tinggal lempar ke index info<br>";
-          }else{
-            header("Location: ../Peserta.php?msg=14");
-            //echo "gagal, tinggal lempar ke index";
-          //  echo $conn->error;
-            break;
-          } */
-
           try {
             $conn->prepare($query)->execute($data);
+            header("Location: ../Peserta.php?id=$sem&msg=103");
           } catch (Exception $e) {
             switch($e->getCode()){
-              case '23000' : header("Location: ../Peserta.php?id=$sem&msg=duplicate"); break;
+              case '23000' : header("Location: ../Peserta.php?id=$sem&msg=233"); break;
+              default : header("Location: ../Peserta.php?id=$sem&msg=203"); break;
             }
           }
 
@@ -58,30 +50,30 @@ if(isset($_POST['postPeserta'])){
       break;
 
     case 'update' :
-      $id= $_POST['id'];
+      $id= $_POST['id'][0];
       $nim= $_POST['nim'];
-      $petugas= "hnihsan";//$_SESSION['username'];
+      $petugas= $_SESSION['username'];
       $fullname= $_POST['fullname'];
       $jurusan= new jurusan;
       $idjurusan=$jurusan->getJurusan($nim);
       $phone= $_POST['phone'];
       $email= $_POST['email'];
+      $sem=$_POST['id'][1];
+      $status=$_POST['status'];
 
-      $query = "UPDATE peserta set nim=?, petugas=?, fullname=?, jurusan=?, phone=?, email=? WHERE id=?";
-      $data=[$nim,$petugas,$fullname,$idjurusan,$phone,$email,$id];
+      $query = "UPDATE peserta set nim=?, status=?, petugas=?, fullname=?, jurusan=?, phone=?, email=? WHERE id=?";
+      $data=[$nim,$status,$petugas,$fullname,$idjurusan,$phone,$email,$id];
       if ($conn->prepare($query)->execute($data) == TRUE) {
-        header("Location: ../Peserta.php?msg=15");
-        //echo "berhasil, tinggal lempar ke index info";
+        header("Location: ../Peserta.php?id=$sem&msg=113");
       }else{
-        header("Location: ../Peserta.php?msg=16");
-        //echo "gagal, tinggal lempar ke index";
+        header("Location: ../Peserta.php?id=$sem&msg=213");
       }
       break;
 
     default :
-      echo "Error here ...";
+      header("Location: ../Peserta.php?msg=299");
   }
 }else{
-  echo "Error Here ..";
+  header("Location: ../Peserta.php?isg=299");
 }
 ?>

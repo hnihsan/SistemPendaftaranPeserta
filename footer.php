@@ -1,7 +1,7 @@
   <script src="resources/js/jquery.js"></script>
   <script src="resources/semantic/semantic.min.js"></script>
 
-  <script src="resources/js/sweetalert2.min.js"></script>
+
   <script type="text/javascript" charset="utf8" src="resources/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" charset="utf8" src="resources/js/dataTables.semanticui.min.js"></script>
   <script type="text/javascript">
@@ -15,9 +15,7 @@
     $('#tambah').modal('attach events', '.tambah.button', 'show');
     $('#ubah').modal('attach events', '.ubah.button', 'show');
     //$('#hapus').modal('attach events', '.hapus.button', 'show');
-    $('#hapus').on('click',function(){
-      swal('Oops...', 'Something went wrong!', 'error');
-    });
+
       });
   </script>
 </body>
