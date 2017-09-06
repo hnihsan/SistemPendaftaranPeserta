@@ -17,7 +17,6 @@ switch (basename($_SERVER['PHP_SELF'])) {
     case 'Pengguna.php':
         $c = 'active';
         break;
-
     default:
         break;
 }
