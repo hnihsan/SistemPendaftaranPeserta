@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="eb98e72e-787f-4638-8f05-222c4096c1b3">
-        <schema name="SeminaryRegist" object-types="table, view" />
+        <schema name="SeminaryRegist" object-types="column, table" />
       </connection>
     </loaded-nodes>
   </component>
