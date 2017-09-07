@@ -26,7 +26,7 @@ date_default_timezone_set("Asia/Jakarta");
                 <table class="ui padded selectable very basic table" id="table1">
                     <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Kode</th>
                         <th>Nama Seminar</th>
                         <th>Waktu</th>
                         <th>Tempat</th>
@@ -98,7 +98,7 @@ date_default_timezone_set("Asia/Jakarta");
                         </div>
                         <div class="field">
                             <label for="tanggal">Tanggal</label>
-                            <input id="tanggal" type="text" name="tanggal" required="">
+                            <input id="tanggal" type="date" name="tanggal" required="">
                         </div>
                     </div>
                     <div class="two fields">

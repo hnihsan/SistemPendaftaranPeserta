@@ -28,8 +28,8 @@ $sql = $conn->query("SELECT * FROM seminar where id=" . $id)->fetchAll();
             <input id="waktu" type="datetime-local" name="waktu" required="" value="<?php echo $sql[0]['waktu'] ?>">
         </div>
         <div class="field">
-            <label for="tanggal">Tempat</label>
-            <input id="tanggal" type="text" name="tanggal" required="" value="<?php echo $sql[0]['tanggal'] ?>">
+            <label for="tanggal">Tanggal</label>
+            <input id="tanggal" type="text" name="date" required="" value="<?php echo $sql[0]['tanggal'] ?>">
         </div>
     </div>
     <div class="two fields">
