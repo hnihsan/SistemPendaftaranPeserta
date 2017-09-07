@@ -1,13 +1,10 @@
 <?php
 function connect_db()
 {
-    try
-    {
+    try {
         $connection = new PDO('mysql:host=localhost;dbname=SeminaryRegist;charset=utf8', 'root', '');
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-    catch (PDOException $e)
-    {
+    } catch (PDOException $e) {
         // Proccess error
         echo 'Cannot connect to database: ' . $e->getMessage();
     }
@@ -15,5 +12,5 @@ function connect_db()
     return $connection;
 }
 
-$conn=connect_db();
- ?>
+$conn = connect_db();
+?>
