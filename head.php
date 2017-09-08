@@ -33,7 +33,7 @@ switch (basename($_SERVER['PHP_SELF'])) {
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Universitas Budi Luhur</title>
+    <title>Sistem Pendaftaran Seminar Universitas Budi Luhur</title>
 </head>
 <body>
 <!--Menu-->
