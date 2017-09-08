@@ -45,6 +45,7 @@ switch (basename($_SERVER['PHP_SELF'])) {
     <div class="ui dropdown item">Peserta Terdaftar <i class="dropdown icon"></i>
         <div class="menu">
             <?php
+            // TODO: tambah menu untuk menampilkan peserta dari semua seminar
             $listSeminar = $conn->query("SELECT * FROM seminar")->fetchAll();
             if (sizeof($listSeminar) > 0) {
                 foreach ($listSeminar as $row) {

@@ -8,7 +8,7 @@ date_default_timezone_set("Asia/Jakarta");
         //menggunakan fungsi ajax untuk pengambilan data
         $.ajax({
             type: 'post',
-            url: 'component/peserta-edit-modal.php',
+            url: 'component/peserta-edi<?php echo $row['id']; ?>t-modal.php',
             data: 'id=' + rowid,
             success: function (data) {
                 $('.fetched-data').html(data);//menampilkan data ke dalam modal
@@ -57,6 +57,8 @@ date_default_timezone_set("Asia/Jakarta");
                                         <button onclick="editPeserta(this.value)" value="<?php echo $row['id']; ?>"
                                                 class="ui compact ubah button">Ubah
                                         </button>
+                                        <a class="ui compact primary button"
+                                           value="<?php echo $row['id']; ?>">Kwitansi</a>
                                     </td>
                                 </tr>
                             <?php }
