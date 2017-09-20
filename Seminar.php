@@ -81,14 +81,18 @@ date_default_timezone_set("Asia/Jakarta");
                 <form class="ui form" action="controller/SeminarController.php" method="post">
                     <input type="hidden" name="postSeminar" value="1">
                     <input type="hidden" name="type" value="create">
+                    <div class="field">
+                        <label for="nm_seminar">Nama Seminar</label>
+                        <input id="nm_seminar" type="text" name="nama" value="">
+                    </div>
                     <div class="two fields">
-                        <div class="field">
-                            <label for="nm_seminar">Nama Seminar</label>
-                            <input id="nm_seminar" type="text" name="nama" value="">
-                        </div>
                         <div class="field">
                             <label for="tempat">Tempat</label>
                             <input id="tempat" type="text" name="tempat" required="">
+                        </div>
+                        <div class="field">
+                            <label for="tanggal">Tanggal</label>
+                            <input id="tanggal" type="date" name="tanggal" required="">
                         </div>
                     </div>
                     <div class="two fields">
@@ -97,8 +101,8 @@ date_default_timezone_set("Asia/Jakarta");
                             <input id="waktu" type="time" name="waktu" required="">
                         </div>
                         <div class="field">
-                            <label for="tanggal">Tanggal</label>
-                            <input id="tanggal" type="date" name="tanggal" required="">
+                            <label for="tanggal">Harga Tiket</label>
+                            <input id="harga" type="number" name="harga" required="">
                         </div>
                     </div>
                     <div class="two fields">

@@ -24,9 +24,11 @@
       <library name="PHARS">
         <CLASSES>
           <root url="phar://$USER_HOME$/composer.phar/" />
+          <root url="phar://$USER_HOME$/.local/share/Trash/files/KepoinEvent/vendor/phpunit/phpunit/tests/_files/phpunit-example-extension/tools/phpunit.d/phpunit-example-extension-1.0.0.phar/" />
         </CLASSES>
         <SOURCES>
           <root url="phar://$USER_HOME$/composer.phar/" />
+          <root url="phar://$USER_HOME$/.local/share/Trash/files/KepoinEvent/vendor/phpunit/phpunit/tests/_files/phpunit-example-extension/tools/phpunit.d/phpunit-example-extension-1.0.0.phar/" />
         </SOURCES>
       </library>
     </orderEntry>

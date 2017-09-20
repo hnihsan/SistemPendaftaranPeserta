@@ -39,7 +39,7 @@ date_default_timezone_set("Asia/Jakarta");
 <div class="ui stackable main container grid">
     <div class="sixteen width column">
         <div class="ui raised segments">
-            <div class="ui yellow segment">
+            <div class="ui yellow attached segment">
                 <h4 class="ui dividing header">Kwitansi Pembayaran Seminar</h4>
                 <div class="ui relaxed divided list">
                     <div class="item">
@@ -60,8 +60,30 @@ date_default_timezone_set("Asia/Jakarta");
                     </div>
                     <div class="item">
                         <div class="header">Seminar yang Diikuti</div>
-                        Seminar Penahan Rasa Cinta (Batal) <br>
-                        Kiat-kiat Melupakan Mantan (Hadir) <br>
+                        <table class="ui celled table">
+                            <thead>
+                            <tr>
+                                <th>Kode</th>
+                                <th>Nama</th>
+                                <th>Harga</th>
+                                <th>Keterangan</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>3</td>
+                                <td>Seminar Penahan Rasa Cinta</td>
+                                <td>5000000</td>
+                                <td class="negative">Batal</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Kiat-kiat Melupakan Mantan</td>
+                                <td>1000000</td>
+                                <td class="positive">Sudah bayar</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

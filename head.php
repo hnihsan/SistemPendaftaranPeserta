@@ -25,9 +25,9 @@ switch (basename($_SERVER['PHP_SELF'])) {
 <html lang="id">
 <head>
     <link rel="stylesheet" type="text/css" href="resources/semantic/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
     <link rel="stylesheet" type="text/css" href="resources/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="resources/css/dataTables.semanticui.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
     <link rel="stylesheet" type="text/css" href="resources/css/sweetalert2.min.css">
     <script src="resources/js/sweetalert2.min.js"></script>
 
