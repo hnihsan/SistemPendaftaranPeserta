@@ -65,6 +65,7 @@ switch (basename($_SERVER['PHP_SELF'])) {
         <div class="menu">
             <a href="Seminar.php" class="<?php echo $a; ?> item">Seminar</a>
             <a href="Pengguna.php" class="<?php echo $c; ?> item">Pengguna</a>
+            <a href="LapKeuangan.php" class="item">Laporan Keuangan</a>
         </div>
     </div>
     <div class="right menu">

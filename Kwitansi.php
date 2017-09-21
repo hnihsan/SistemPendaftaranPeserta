@@ -80,7 +80,7 @@ date_default_timezone_set("Asia/Jakarta");
                                 <td>4</td>
                                 <td>Kiat-kiat Melupakan Mantan</td>
                                 <td>1000000</td>
-                                <td class="positive">Sudah bayar</td>
+                                <td class="positive">Lunas</td>
                             </tr>
                             </tbody>
                         </table>
