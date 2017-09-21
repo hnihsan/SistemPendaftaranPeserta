@@ -61,4 +61,4 @@ date_default_timezone_set("Asia/Jakarta");
         </div>
     </div>
 </div>
-
+<?php include 'footer.php'; ?>
