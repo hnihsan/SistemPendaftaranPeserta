@@ -102,7 +102,7 @@ date_default_timezone_set("Asia/Jakarta");
                         </div>
                         <div class="field">
                             <label for="tanggal">Harga Tiket</label>
-                            <input id="harga" type="number" name="harga" required="">
+                            <input id="harga" type="number" name="harga" required="" min="0">
                         </div>
                     </div>
                     <div class="two fields">

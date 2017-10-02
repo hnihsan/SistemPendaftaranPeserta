@@ -8,28 +8,34 @@ $sql = $conn->query("SELECT * FROM seminar where id=" . $id)->fetchAll();
 <form class="ui form" action="controller/SeminarController.php" method="post">
     <input type="hidden" name="postSeminar" value="1">
     <input type="hidden" name="type" value="update">
-    <div class="field">
-        <label for="nm_seminar">Nama Seminar</label>
-        <input id="nm_seminar" type="text" name="nama" value="<?php echo $sql[0]['nama'] ?>">
-    </div>
     <div class="two fields">
         <div class="field">
             <label for="id">Kode Seminar</label>
             <input id="id" type="text" name="id" readonly="" value="<?php echo $sql[0]['id'] ?>">
         </div>
         <div class="field">
+            <label for="nm_seminar">Nama Seminar</label>
+            <input id="nm_seminar" type="text" name="nama" value="<?php echo $sql[0]['nama'] ?>">
+        </div>
+    </div>
+    <div class="two fields">
+        <div class="field">
             <label for="tempat">Tempat</label>
             <input id="tempat" type="text" name="tempat" required="" value="<?php echo $sql[0]['tempat'] ?>">
+        </div>
+        <div class="field">
+            <label for="tanggal">Tanggal</label>
+            <input id="tanggal" type="date" name="date" required="" value="<?php echo $sql[0]['tanggal'] ?>">
         </div>
     </div>
     <div class="two fields">
         <div class="field">
             <label for="waktu">Waktu</label>
-            <input id="waktu" type="datetime-local" name="waktu" required="" value="<?php echo $sql[0]['waktu'] ?>">
+            <input id="waktu" type="time" name="waktu" required="" value="<?php echo $sql[0]['waktu'] ?>">
         </div>
         <div class="field">
-            <label for="tanggal">Tanggal</label>
-            <input id="tanggal" type="text" name="date" required="" value="<?php echo $sql[0]['tanggal'] ?>">
+            <label for="tanggal">Harga Tiket</label>
+            <input id="harga" type="number" name="harga" required="" min="0">
         </div>
     </div>
     <div class="two fields">
