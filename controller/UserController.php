@@ -20,9 +20,11 @@ if(isset($_POST['postUsers'])){
       $query = "INSERT INTO users (username,password,fullname,phone,email) VALUES(?,?,?,?,?)";
       $data = [$username,$password,$fullname,$phone,$email];
       if ($conn->prepare($query)->execute($data) === TRUE) {
-        header("Location: ../Pengguna.php?msg=101");
+        $_SESSION['msg']="101";
+        header("Location: ../Pengguna.php");
       }else{
-        header("Location: ../Pengguna.php?msg=201");
+        $_SESSION['msg']="201";
+        header("Location: ../Pengguna.php");
       }
       break;
 
@@ -36,9 +38,11 @@ if(isset($_POST['postUsers'])){
       $query = "UPDATE users set password=?, fullname=?, phone=?, email=? WHERE username=?";
       $data = [$password,$fullname,$phone,$email,$username];
       if ($conn->prepare($query)->execute($data) == TRUE) {
-        header("Location: ../Pengguna.php?msg=111");
+        $_SESSION['msg']="111";
+        header("Location: ../Pengguna.php");
       }else{
-        header("Location: ../Pengguna.php?msg=211");
+        $_SESSION['msg']="211";
+        header("Location: ../Pengguna.php");
       }
       break;
 
@@ -49,16 +53,20 @@ if(isset($_POST['postUsers'])){
       $data = [$username];
 
       if ($conn->prepare($query)->execute($data) == TRUE) {
-        header("Location: ../Pengguna.php?msg=121");
+        $_SESSION['msg']="121";
+        header("Location: ../Pengguna.php");
       }else{
-        header("Location: ../Pengguna.php?msg=221");
+        $_SESSION['msg']="221";
+        header("Location: ../Pengguna.php");
       }
       break;
 
     default :
-      header("Location: ../Pengguna.php?msg=299");
+    $_SESSION['msg']="299";
+      header("Location: ../Pengguna.php");
   }
 }else{
-  header("Location: ../Pengguna.php?msg=299");
+  $_SESSION['msg']="299";
+  header("Location: ../Pengguna.php");
 }
 ?>

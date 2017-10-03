@@ -11,17 +11,23 @@ if(isset($_POST['postSeminar'])){
   switch($_POST['type']){
     case 'create' :
       $nama= $_POST['nama'];
-      $waktu= $_POST['waktu'];
+      $tanggal= $_POST['tanggal'];
+      $jam= $_POST['waktu'];
+      $waktu=$tanggal.' '.$jam;
       $tempat= $_POST['tempat'];;
       $narasumber= $_POST['narasumber'];
       $kuota= $_POST['kuota'];
+      $harga= $_POST['harga'];
 
-      $query = "INSERT INTO seminar (nama,waktu,tempat,narasumber,kuota) VALUES(?,?,?,?,?)";
-      $data=[$nama,$waktu,$tempat,$narasumber,$kuota];
+      $query = "INSERT INTO seminar (nama,waktu,tempat,narasumber,kuota,harga) VALUES(?,?,?,?,?,?)";
+      $data=[$nama,$waktu,$tempat,$narasumber,$kuota,$harga];
       if ($conn->prepare($query)->execute($data) == TRUE) {
-        header("Location: ../Seminar.php?msg=102");
+        $_SESSION['msg']="102";
+        header("Location: ../Seminar.php");
+
       }else{
-        header("Location: ../Seminar.php?msg=202");
+        $_SESSION['msg']="202";
+        header("Location: ../Seminar.php");
       }
       break;
 
@@ -32,28 +38,35 @@ if(isset($_POST['postSeminar'])){
       $tempat= $_POST['tempat'];;
       $narasumber= $_POST['narasumber'];
       $kuota= $_POST['kuota'];
+      $harga= $_POST['harga'];
 
-      $query = "UPDATE seminar set nama=?, waktu=?,tempat=?,narasumber=?,kuota=? where id=? ";
-      $data=[$nama,$waktu,$tempat,$narasumber,$kuota,$id];
+      $query = "UPDATE seminar set nama=?, waktu=?,tempat=?,narasumber=?,kuota=?,harga=? where id=? ";
+      $data=[$nama,$waktu,$tempat,$narasumber,$kuota,$harga,$id];
       if ($conn->prepare($query)->execute($data) == TRUE) {
-        header("Location: ../Seminar.php?msg=112");
+        $_SESSION['msg']="112";
+        header("Location: ../Seminar.php");
       }else{
-        header("Location: ../Seminar.php?msg=212");
+        $_SESSION['msg']="212";
+        header("Location: ../Seminar.php");
       }
       break;
     case 'delete' :
       $id=$_POST['id'];
       $query ="DELETE FROM seminar where id=".$id;
       if ($conn->query($query) == TRUE) {
-        header("Location: ../Seminar.php?msg=122");
+        $_SESSION['msg']="122";
+        header("Location: ../Seminar.php");
       }else{
-        header("Location: ../Seminar.php?msg=222");
+        $_SESSION['msg']="222";
+        header("Location: ../Seminar.php");
       }
       break;
     default :
-      header("Location: ../Seminar.php?msg=299");
+      $_SESSION['msg']="299";
+      header("Location: ../Seminar.php");
   }
 }else{
-  header("Location: ../Seminar.php?msg=299");
+  $_SESSION['msg']="299";
+  header("Location: ../Seminar.php");
 }
 ?>

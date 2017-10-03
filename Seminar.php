@@ -28,9 +28,11 @@ function editSeminar($str) {
               <tr>
                 <th>ID</th>
                 <th>Nama Seminar</th>
+                <th>Tanggal</th>
                 <th>Waktu</th>
                 <th>Tempat</th>
                 <th>Kuota</th>
+                <th>HTM</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -51,12 +53,17 @@ function editSeminar($str) {
                 </tr>
             <?php  }else{
               foreach($seminar as $row){
+                $waktu=explode(' ',$row['waktu']);
+                $tgl=date_create($waktu[0]);
+                $jam=date_create($waktu[1]);
                 echo "<tr>";
                 echo "<td>".$row['id']."</td>";
                 echo "<td>".$row['nama']."</td>";
-                echo "<td>".$row['waktu']."</td>";
+                echo "<td>".date_format($tgl, "l, d F Y")."</td>";
+                echo "<td>".date_format($jam, "H:i:s")."</td>";
                 echo "<td>".$row['tempat']."</td>";
-                echo "<td>".$row['kuota']."</td>"; ?>
+                echo "<td>".$row['kuota']."</td>";
+                echo "<td>Rp ".number_format($row['harga'],0,'','.')."</td>"; ?>
                 <td>
                   <button onclick="editSeminar(this.value)" value="<?php echo $row['id']; ?>" class="ui compact ubah button">Ubah</button>
                   <button onclick="deleteSeminar(this.value)" value="<?php echo $row['id']; ?>" class="ui compact hapus negative button">Hapus</button>
@@ -83,27 +90,34 @@ function editSeminar($str) {
               <input id="nm_seminar" type="text" name="nama" value="">
             </div>
             <div class="two fields">
-              <div class="field">
-                <label for="waktu">Waktu</label>
-                <input id="waktu" type="datetime-local" name="waktu" required="">
-              </div>
-              <div class="field">
-                <label for="tempat">Tempat</label>
-                <input id="tempat" type="text" name="tempat" required="">
-              </div>
+                <div class="field">
+                    <label for="tempat">Tempat</label>
+                    <input id="tempat" type="text" name="tempat" required="">
+                </div>
+                <div class="field">
+                    <label for="tanggal">Tanggal</label>
+                    <input id="tanggal" type="date" name="tanggal" required="">
+                </div>
             </div>
             <div class="two fields">
-              <div class="field">
-                <label for="kuota">Kuota</label>
-                <input id="kuota" type="number" name="kuota" required="" max="300">
-              </div>
-              <div class="field">
-                <label for="email">Narasumber</label>
-                <div class="ui action input">
-                  <input id="narasumber" type="text" name="narasumber" required="" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
-                  <button class="ui button">Pilih</button>
+                <div class="field">
+                    <label for="waktu">Waktu</label>
+                    <input id="waktu" type="time" name="waktu" required="">
                 </div>
-              </div>
+                <div class="field">
+                    <label for="harga">Harga Tiket</label>
+                    <input id="harga" type="number" name="harga" required="">
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label for="kuota">Kuota</label>
+                    <input id="kuota" type="number" name="kuota" required="" max="500" min="1">
+                </div>
+                <div class="field">
+                    <label for="narasumber">Narasumber</label>
+                    <input id="narasumber" type="text" name="narasumber" required="">
+                </div>
             </div>
         </div>
         <div class="actions">

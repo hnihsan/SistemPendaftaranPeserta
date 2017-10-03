@@ -15,14 +15,16 @@ if(isset($_POST['postLogin'])){
     $_SESSION['fullname']=$data[0]['fullname'];
     $nick=explode(' ',$data[0]['fullname']);
     $_SESSION['nickname']=$nick[0];
-    header("Location: ../Peserta.php");
+    header("Location: ../TambahPeserta.php");
   }else{
-    header("Location: ../index.php?msg=301");
+    $_SESSION['msg']="301";
+    header("Location: ../index.php");
   }
 }else if(isset($_POST['postLogout'])){
   session_unset();
   session_destroy();
   header("Location: ../index.php");
 }else{
-  header("Location: ../index.php?msg=300");
+  $_SESSION['msg']="300";
+  header("Location: ../index.php");
 }

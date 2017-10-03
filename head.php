@@ -1,14 +1,16 @@
 <?php session_start();
 include "koneksi.php";
-if(empty($_SESSION[username])){
-  header("Location: index.php?msg=300");
+if(empty($_SESSION['username'])){
+  $_SESSION['msg']='300';
+  header("Location: index.php");
 }
 
-$a='';$b='';$c='';
+$a='';$b='';$c='';$d='';
 switch (basename($_SERVER['PHP_SELF'])) {
   case 'Seminar.php': $a='active'; break;
   case 'Peserta.php': $b='active'; break;
   case 'Pengguna.php': $c='active'; break;
+  case 'LaporanKeuangan.php': $d='active'; break;
 
   default: break;
 }
@@ -34,11 +36,14 @@ switch (basename($_SERVER['PHP_SELF'])) {
     <div class="item">
       <img src="resources/images/logo_bl.png">
     </div>
+    <a href="TambahPeserta.php" class="item">Tambah Peserta</a>
     <div class="ui dropdown item">Peserta Terdaftar <i class="dropdown icon"></i>
       <div class="menu">
         <?php
         $listSeminar=$conn->query("SELECT * FROM seminar")->fetchAll();
-        if(sizeof($listSeminar)>0){
+        if(sizeof($listSeminar)>0){ ?>
+          <a href="<?php echo 'Peserta.php' ?>" class="<?php if(empty($_GET['id'])) echo 'active'; ?> item">Seluruh Peserta</a>
+          <?php
           foreach($listSeminar as $row) {
             if($b!='' && !empty($_GET['id'])){
               if($row['id']==$_GET['id']) $bid='active';
@@ -54,6 +59,7 @@ switch (basename($_SERVER['PHP_SELF'])) {
       <div class="menu">
         <a href="Seminar.php" class="<?php echo $a; ?> item">Seminar</a>
         <a href="Pengguna.php" class="<?php echo $c; ?> item">Pengguna</a>
+        <a href="LaporanKeuangan.php" class="<?php echo $d; ?> item">Laporan Keuangan</a>
       </div>
     </div>
     <div class="right menu">
