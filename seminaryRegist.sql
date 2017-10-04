@@ -1,5 +1,5 @@
-CREATE DATABASE SeminaryRegist;
-USE SeminaryRegist;
+#CREATE DATABASE SeminaryRegist;
+#USE SeminaryRegist;
 
 CREATE TABLE users (
   username char(100) NOT NULL,
@@ -11,6 +11,10 @@ CREATE TABLE users (
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (username)
 );
+## ADMIN Login
+INSERT INTO users (username,password,fullname) VALUES(
+  'administrator','200ceb26807d6bf99fd6f4f0d1ca54d4', 'Administrator'
+);
 
 CREATE TABLE seminar (
   id int(11) NOT NULL AUTO_INCREMENT,
@@ -19,24 +23,31 @@ CREATE TABLE seminar (
   tempat varchar(255) NOT NULL,
   narasumber text,
   kuota int(3),
+  harga int(11),
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE peserta (
-  id BIGINT(8) NOT NULL AUTO_INCREMENT,
-  id_seminar int(11),
-  petugas char(100),
-  nim char(10),
+  nim char(10) NOT NULL,
   fullname varchar(255) NOT NULL,
   jurusan int(2) NOT NULL,
   phone varchar(17),
   email varchar(255),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY(nim)
+);
+
+CREATE TABLE peserta_seminar(
+  id_seminar int(11) NOT NULL,
+  nim char(10) NOT NULL,
+  petugas char(100) NOT NULL,
   status tinyint(1) DEFAULT 1,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY(id),
+
   UNIQUE KEY `nim_per_idseminar` (`id_seminar`,`nim`)
 );
 
@@ -124,8 +135,11 @@ INSERT INTO msg_log (id,type,header,body) VALUES
 ALTER TABLE peserta
   ADD CONSTRAINT FK_JURUSAN FOREIGN KEY (jurusan) REFERENCES jurusan (id) ON DELETE CASCADE ON UPDATE CASCADE;
 
-ALTER TABLE peserta
+ALTER TABLE peserta_seminar
   ADD CONSTRAINT FK_SEMINAR FOREIGN KEY (id_seminar) REFERENCES seminar (id) ON DELETE CASCADE ON UPDATE CASCADE;
 
-ALTER TABLE peserta
+ALTER TABLE peserta_seminar
   ADD CONSTRAINT FK_PETUGAS FOREIGN KEY (petugas) REFERENCES users (username) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE peserta_seminar
+  ADD CONSTRAINT FKTrx_PESERTA FOREIGN KEY (nim) REFERENCES peserta (nim) ON DELETE CASCADE ON UPDATE CASCADE;

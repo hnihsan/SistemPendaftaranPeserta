@@ -17,14 +17,14 @@ if (isset($_POST['postUsers'])) {
             $phone = $_POST['phone'];
             $email = $_POST['email'];
 
-            $query = "INSERT INTO users (username,password,fullname,phone,email) VALUES(?,?,?,?,?)";
-            $data = [$username, $password, $fullname, $phone, $email];
-            if ($conn->prepare($query)->execute($data) === TRUE) {
-                header("Location: ../Pengguna.php?msg=101");
-            } else {
-                header("Location: ../Pengguna.php?msg=201");
-            }
-            break;
+      $query = "INSERT INTO users (username,password,fullname,phone,email) VALUES(?,?,?,?,?)";
+      $data = [$username,$password,$fullname,$phone,$email];
+      if ($conn->prepare($query)->execute($data) === TRUE) {
+        $_SESSION['msg']="101";header("Location: ../Pengguna.php");
+      }else{
+        $_SESSION['msg']="201";header("Location: ../Pengguna.php");
+      }
+      break;
 
         case 'update' :
             $username = $_POST['username'];
@@ -33,14 +33,14 @@ if (isset($_POST['postUsers'])) {
             $phone = $_POST['phone'];
             $email = $_POST['email'];
 
-            $query = "UPDATE users set password=?, fullname=?, phone=?, email=? WHERE username=?";
-            $data = [$password, $fullname, $phone, $email, $username];
-            if ($conn->prepare($query)->execute($data) == TRUE) {
-                header("Location: ../Pengguna.php?msg=111");
-            } else {
-                header("Location: ../Pengguna.php?msg=211");
-            }
-            break;
+      $query = "UPDATE users set password=?, fullname=?, phone=?, email=? WHERE username=?";
+      $data = [$password,$fullname,$phone,$email,$username];
+      if ($conn->prepare($query)->execute($data) == TRUE) {
+        $_SESSION['msg']="111";header("Location: ../Pengguna.php");
+      }else{
+        $_SESSION['msg']="211";header("Location: ../Pengguna.php");
+      }
+      break;
 
         case 'delete' :
             $username = $_POST['username'];
@@ -48,17 +48,17 @@ if (isset($_POST['postUsers'])) {
             $query = "DELETE FROM users WHERE username=?";
             $data = [$username];
 
-            if ($conn->prepare($query)->execute($data) == TRUE) {
-                header("Location: ../Pengguna.php?msg=121");
-            } else {
-                header("Location: ../Pengguna.php?msg=221");
-            }
-            break;
+      if ($conn->prepare($query)->execute($data) == TRUE) {
+        $_SESSION['msg']="121";header("Location: ../Pengguna.php");
+      }else{
+        $_SESSION['msg']="221";header("Location: ../Pengguna.php");
+      }
+      break;
 
-        default :
-            header("Location: ../Pengguna.php?msg=299");
-    }
-} else {
-    header("Location: ../Pengguna.php?msg=299");
+    default :
+    $_SESSION['msg']="299";  header("Location: ../Pengguna.php");
+  }
+}else{
+  $_SESSION['msg']="299";header("Location: ../Pengguna.php");
 }
 ?>

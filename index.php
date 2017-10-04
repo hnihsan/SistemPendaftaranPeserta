@@ -2,7 +2,7 @@
 include "koneksi.php";
 
 if (!empty($_SESSION['username'])) {
-    header("Location: Peserta.php");
+    header("Location: TambahPeserta.php");
 }
 ?>
 

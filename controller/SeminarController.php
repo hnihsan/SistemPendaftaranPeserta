@@ -7,23 +7,25 @@ if (empty($_SESSION['username'])) {
 
 date_default_timezone_set("Asia/Jakarta");
 
-if (isset($_POST['postSeminar'])) {
-    switch ($_POST['type']) {
-        case 'create' :
-            $nama = $_POST['nama'];
-            $waktu = $_POST['waktu'];
-            $tempat = $_POST['tempat'];;
-            $narasumber = $_POST['narasumber'];
-            $kuota = $_POST['kuota'];
+if(isset($_POST['postSeminar'])){
+  switch($_POST['type']){
+    case 'create' :
+      $nama= $_POST['nama'];
+      $tanggal= $_POST['tanggal'];
+      $jam= $_POST['waktu'];
+      $waktu=$tanggal.' '.$jam;
+      $tempat= $_POST['tempat'];;
+      $narasumber= $_POST['narasumber'];
+      $kuota= $_POST['kuota'];$harga= $_POST['harga'];
 
-            $query = "INSERT INTO seminar (nama,waktu,tempat,narasumber,kuota) VALUES(?,?,?,?,?)";
-            $data = [$nama, $waktu, $tempat, $narasumber, $kuota];
-            if ($conn->prepare($query)->execute($data) == TRUE) {
-                header("Location: ../Seminar.php?msg=102");
-            } else {
-                header("Location: ../Seminar.php?msg=202");
-            }
-            break;
+      $query = "INSERT INTO seminar (nama,waktu,tempat,narasumber,kuota,harga) VALUES(?,?,?,?,?,?)";
+      $data=[$nama,$waktu,$tempat,$narasumber,$kuota,$harga];
+      if ($conn->prepare($query)->execute($data) == TRUE) {
+        $_SESSION['msg']="102";header("Location: ../Seminar.php");
+      }else{
+        $_SESSION['msg']="202";header("Location: ../Seminar.php");
+      }
+      break;
 
         case 'update' :
             $id = $_POST['id'];
@@ -32,28 +34,29 @@ if (isset($_POST['postSeminar'])) {
             $tempat = $_POST['tempat'];;
             $narasumber = $_POST['narasumber'];
             $kuota = $_POST['kuota'];
+      $harga= $_POST['harga'];
 
-            $query = "UPDATE seminar set nama=?, waktu=?,tempat=?,narasumber=?,kuota=? where id=? ";
-            $data = [$nama, $waktu, $tempat, $narasumber, $kuota, $id];
-            if ($conn->prepare($query)->execute($data) == TRUE) {
-                header("Location: ../Seminar.php?msg=112");
-            } else {
-                header("Location: ../Seminar.php?msg=212");
-            }
-            break;
-        case 'delete' :
-            $id = $_POST['id'];
-            $query = "DELETE FROM seminar where id=" . $id;
-            if ($conn->query($query) == TRUE) {
-                header("Location: ../Seminar.php?msg=122");
-            } else {
-                header("Location: ../Seminar.php?msg=222");
-            }
-            break;
-        default :
-            header("Location: ../Seminar.php?msg=299");
-    }
-} else {
-    header("Location: ../Seminar.php?msg=299");
+      $query = "UPDATE seminar set nama=?, waktu=?,tempat=?,narasumber=?,kuota=?,harga=? where id=? ";
+      $data=[$nama,$waktu,$tempat,$narasumber,$kuota,$harga,$id];
+      if ($conn->prepare($query)->execute($data) == TRUE) {
+        $_SESSION['msg']="112";header("Location: ../Seminar.php");
+      }else{
+        $_SESSION['msg']="212";header("Location: ../Seminar.php");
+      }
+      break;
+    case 'delete' :
+      $id=$_POST['id'];
+      $query ="DELETE FROM seminar where id=".$id;
+      if ($conn->query($query) == TRUE) {
+        $_SESSION['msg']="122";header("Location: ../Seminar.php");
+      }else{
+        $_SESSION['msg']="222";header("Location: ../Seminar.php");
+      }
+      break;
+    default :
+      $_SESSION['msg']="299";header("Location: ../Seminar.php");
+  }
+}else{
+  $_SESSION['msg']="299";header("Location: ../Seminar.php");
 }
 ?>
