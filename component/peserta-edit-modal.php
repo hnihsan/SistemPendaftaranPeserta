@@ -2,14 +2,12 @@
 
 include "../koneksi.php";
 $id=$_POST['id'];
-$sql=$conn->query("SELECT * FROM peserta where id=".$id)->fetchAll();
+$sql=$conn->query("SELECT * FROM peserta where nim=".$id)->fetchAll();
 ?>
 
 <form class="ui form" action="controller/PesertaController.php" method="post">
   <input type="hidden" name="postPeserta" value="1">
   <input type="hidden" name="type" value="update">
-  <input type="hidden" name="id[0]" value="<?php echo $sql[0]['id']; ?>">
-  <input type="hidden" name="id[1]" value="<?php echo $sql[0]['id_seminar']; ?>">
   <div class="two fields">
     <div class="field">
       <label for="nim">Nomor Induk Mahasiswa</label>
@@ -31,14 +29,35 @@ $sql=$conn->query("SELECT * FROM peserta where id=".$id)->fetchAll();
     </div>
   </div>
   <div class="field">
-    <label for="status">Status Pembayaran</label>
-    <select class="ui fluid dropdown" name="status">
-      <option value="">Pilih Status</option>
-      <option value="1" selected>Hadir</option>
-      <option value="0">Batal Hadir</option>
-    </select>
+    <label for="status">Status Kehadiran</label>
+    <table class="ui padded selectable very basic table" >
+      <tbody>
+        <?php $Seminar=$conn->query("SELECT b.nama, a.id_seminar as id, a.status FROM peserta_seminar a JOIN seminar b ON a.id_seminar=b.id WHERE a.nim='$id'");
+        foreach($Seminar as $sem){ ?>
+          <tr>
+            <td><?php echo $sem['nama'] ?></td>
+            <td>
+              <div class="inline fields">
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" value='1' name="sem[<?php echo $sem['id'] ?>]" <?php if($sem['status']==1) echo 'checked="checked"'?>>
+                    <label>Hadir</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" value='0' name="sem[<?php echo $sem['id'] ?>]" <?php if($sem['status']==0) echo 'checked="checked"'?>>
+                    <label>Batal</label>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <?php }
+         ?>
+      </tbody>
+    </table>
   </div>
-</div>
 <div class="actions">
   <input class="ui button" type="reset" value="Bersihkan">
   <input class="ui primary right button" type="submit" name="update" value="Perbarui">

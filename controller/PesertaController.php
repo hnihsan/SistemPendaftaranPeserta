@@ -1,7 +1,6 @@
 <?php
 include "../koneksi.php";
 session_start();
-$_SESSION['username']='administrator';
 if(empty($_SESSION['username'])){
   header("Location: index.php");
 }
@@ -72,12 +71,21 @@ if(isset($_POST['postPeserta'])){
       $idjurusan=$jurusan->getJurusan($nim);
       $phone= $_POST['phone'];
       $email= $_POST['email'];
-      $sem=$_POST['id'][1];
-      $status=$_POST['status'];
+      $seminar=$_POST['sem'];
 
-      $query = "UPDATE peserta set status=?, petugas=?, fullname=?, jurusan=?, phone=?, email=? WHERE nim=?";
-      $data=[$status,$petugas,$fullname,$idjurusan,$phone,$email,$nim];
+      $query = "UPDATE peserta set fullname=?, jurusan=?, phone=?, email=? WHERE nim=?";
+      $data=[$fullname,$idjurusan,$phone,$email,$nim];
       if ($conn->prepare($query)->execute($data) == TRUE) {
+        foreach($seminar as $key=>$value) {
+          $id_seminar=$key;
+          $status=$value;
+          $query= "UPDATE peserta_seminar set petugas=?, status=? WHERE id_seminar=? AND nim=?";
+          $data=[$petugas,$status,$id_seminar,$nim];
+          if($conn->prepare($query)->execute($data) != TRUE){
+            echo "Update status seminar error";
+          };
+        }
+
         $_SESSION['msg']="113";
         header("Location: ../Peserta.php");
       }else{
@@ -86,6 +94,21 @@ if(isset($_POST['postPeserta'])){
       }
       break;
 
+    case 'updateStatus' :
+      $petugas=$_SESSION['username'];
+      $status=$_POST['status'];
+      $id_seminar=$_POST['id_seminar'];
+      $nim=$_POST['nim'];
+      $query= "UPDATE peserta_seminar set petugas=?, status=? WHERE id_seminar=? AND nim=?";
+      $data=[$petugas,$status,$id_seminar,$nim];
+      if($conn->prepare($query)->execute($data) != TRUE){
+        $_SESSION['msg']="213";
+        header("Location: ../Peserta_Seminar.php?id=".$_GET['id']);
+      }else{
+        $_SESSION['msg']="113";
+        header("Location: ../Peserta_Seminar.php?id=".$_GET['id']);
+      }
+      break;
     default :
     $_SESSION['msg']="299";
       header("Location: ../TambahPeserta.php");
