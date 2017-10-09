@@ -60,7 +60,6 @@ switch (basename($_SERVER['PHP_SELF'])) {
 </head>
 <body>
 <br><br><br>
-<!--Menu-->
 <?php include "msg_log.php"; ?>
 <div class="ui stackable top fixed container inverted borderless blue menu">
     <div class="item">

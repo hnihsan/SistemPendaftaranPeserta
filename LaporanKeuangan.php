@@ -3,7 +3,6 @@ include "head.php";
 date_default_timezone_set("Asia/Jakarta");
 $Seminar=$conn->query("SELECT * FROM seminar");
 ?>
-<!--Menu-->
 <div id="section-to-print" class="ui main container">
     <h1  class="ui center aligned header">Laporan Keuangan</h1>
     <hr>

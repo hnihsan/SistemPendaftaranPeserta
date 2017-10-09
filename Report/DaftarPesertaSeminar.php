@@ -9,7 +9,6 @@ date_default_timezone_set("Asia/Jakarta");
 $Seminar=$conn->query("SELECT * FROM seminar WHERE id=$id")->fetchAll();
 $Peserta=$conn->query("SELECT b.fullname as nama, b.nim FROM peserta_seminar a JOIN peserta b ON a.nim=b.nim JOIN seminar c ON a.id_seminar=c.id WHERE a.id_seminar=$id ");
 ?>
-<!--Menu-->
 <div id="section-to-print" class="ui main container" >
     <h4  class="ui center aligned header">Daftar Hadir Peserta</h4>
     <h1  class="ui center aligned header"><?php echo $Seminar[0]['nama'] ?></h1>

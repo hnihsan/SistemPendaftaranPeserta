@@ -96,7 +96,6 @@ date_default_timezone_set("Asia/Jakarta");
             </div>
         </form>
     </div>
-
     <div class="eight wide column">
         <div class="ui raised segments">
             <div class="ui yellow segment">

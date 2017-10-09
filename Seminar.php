@@ -16,70 +16,70 @@ date_default_timezone_set("Asia/Jakarta");
         });
     }
 </script>
-<!--Menu-->
-
 <div class="ui stackable main container grid">
     <div class="sixteen wide column">
-        <div class="ui yellow raised segment">
-            <h4 class="ui dividing header">Daftar Seminar</h4>
-            <table class="ui padded selectable basic table">
-                <thead>
-                <tr>
-                    <th>Kode</th>
-                    <th>Nama Seminar</th>
-                    <th>Tanggal</th>
-                    <th>Waktu</th>
-                    <th>Tempat</th>
-                    <th>Kuota</th>
-                    <th>HTM</th>
-                    <th>Aksi</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-                $query = "SELECT * FROM seminar";
-                $seminar = $conn->query($query)->fetchAll();
-                if (sizeof($seminar) == 0) { ?>
+        <div class="ui raised segments">
+            <div class="ui yellow segment">
+                <h4 class="ui dividing header">Daftar Seminar</h4>
+                <table class="ui padded selectable basic table" id="table1">
+                    <thead>
                     <tr>
-                        <td>0</td>
-                        <td>Belum ada data</td>
-                        <td>Belum ada data</td>
-                        <td>Belum ada data</td>
-                        <td>Belum ada data</td>
-                        <td>Belum ada data</td>
-                        <td>-</td>
-                        <td>
-                            <a class="ui compact ubah disabled button">Ubah</a>
-                            <a class="ui compact negative disabled button">Hapus</a>
-                        </td>
+                        <th>Kode</th>
+                        <th>Nama Seminar</th>
+                        <th>Tanggal</th>
+                        <th>Waktu</th>
+                        <th>Tempat</th>
+                        <th>Kuota</th>
+                        <th>HTM</th>
+                        <th>Aksi</th>
                     </tr>
-                <?php } else {
-                    foreach ($seminar as $row) {
-                        $waktu = explode(' ', $row['waktu']);
-                        $tgl = date_create($waktu[0]);
-                        $jam = date_create($waktu[1]);
-                        echo "<tr>";
-                        echo "<td>" . $row['id'] . "</td>";
-                        echo "<td>" . $row['nama'] . "</td>";
-                        echo "<td>" . date_format($tgl, "l, d F Y") . "</td>";
-                        echo "<td>" . date_format($jam, "H:i:s") . "</td>";
-                        echo "<td>" . $row['tempat'] . "</td>";
-                        echo "<td>" . $row['kuota'] . "</td>";
-                        echo "<td>Rp" . number_format($row['harga'], 0, '', '.') . ",00</td>"; ?>
-                        <td>
-                            <button class="ui compact ubah button" onclick="editSeminar(this.value)"
-                                    value="<?php echo $row['id']; ?>">Ubah
-                            </button>
-                            <button class="ui compact hapus negative button" onclick="deleteSeminar(this.value)"
-                                    value="<?php echo $row['id']; ?>">Hapus
-                            </button>
-                        </td>
-                    <?php }
-                }
-                ?>
-                </tbody>
-            </table>
-            <div class="ui fluid primary tambah button" tabindex="0">Tambah Seminar</div>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $query = "SELECT * FROM seminar";
+                    $seminar = $conn->query($query)->fetchAll();
+                    if (sizeof($seminar) == 0) { ?>
+                        <tr>
+                            <td>0</td>
+                            <td>Belum ada data</td>
+                            <td>Belum ada data</td>
+                            <td>Belum ada data</td>
+                            <td>Belum ada data</td>
+                            <td>Belum ada data</td>
+                            <td>-</td>
+                            <td>
+                                <a class="ui compact ubah disabled button">Ubah</a>
+                                <a class="ui compact negative disabled button">Hapus</a>
+                            </td>
+                        </tr>
+                    <?php } else {
+                        foreach ($seminar as $row) {
+                            $waktu = explode(' ', $row['waktu']);
+                            $tgl = date_create($waktu[0]);
+                            $jam = date_create($waktu[1]);
+                            echo "<tr>";
+                            echo "<td>" . $row['id'] . "</td>";
+                            echo "<td>" . $row['nama'] . "</td>";
+                            echo "<td>" . date_format($tgl, "l, d F Y") . "</td>";
+                            echo "<td>" . date_format($jam, "H.i") . "</td>";
+                            echo "<td>" . $row['tempat'] . "</td>";
+                            echo "<td>" . number_format($row['kuota'], 0, '', '.') . "</td>";
+                            echo "<td>Rp" . number_format($row['harga'], 0, '', '.') . ",00</td>"; ?>
+                            <td>
+                                <button class="ui compact ubah button" onclick="editSeminar(this.value)"
+                                        value="<?php echo $row['id']; ?>">Ubah
+                                </button>
+                                <button class="ui compact hapus negative button" onclick="deleteSeminar(this.value)"
+                                        value="<?php echo $row['id']; ?>">Hapus
+                                </button>
+                            </td>
+                        <?php }
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ui bottom attached primary tambah button" tabindex="0">Tambah Seminar</div>
         </div>
         <div class="ui modal" id="tambah">
             <div class="header">

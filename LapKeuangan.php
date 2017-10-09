@@ -16,8 +16,6 @@ date_default_timezone_set("Asia/Jakarta");
         });
     }
 </script>
-<!--Menu-->
-
 <div class="ui stackable main container grid">
     <div class="sixteen wide column">
         <div class="ui raised segments">

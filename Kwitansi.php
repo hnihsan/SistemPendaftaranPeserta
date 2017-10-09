@@ -19,7 +19,6 @@ date_default_timezone_set("Asia/Jakarta");
     <script src="resources/js/sweetalert2.min.js"></script>
 </head>
 <body>
-<!--Menu-->
 <div class="ui stackable top fixed inverted borderless blue menu">
     <div class="item">
         <a href="Peserta.php"><i class="chevron left icon"></i> Kembali</a>
