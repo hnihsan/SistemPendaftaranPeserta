@@ -24,7 +24,7 @@ date_default_timezone_set("Asia/Jakarta");
                     <h4 class="ui dividing header">Daftar Peserta Terdaftar</h4>
                     <table class="ui padded selectable very basic table" id="table1">
                         <thead>
-                        <tr>
+                        <tr class="center aligned">
                             <th>NIM</th>
                             <th>Nama</th>
                             <th>Program Studi</th>

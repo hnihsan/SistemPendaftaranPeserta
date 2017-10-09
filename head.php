@@ -53,13 +53,11 @@ switch (basename($_SERVER['PHP_SELF'])) {
         }
     </style>
     <script src="resources/js/sweetalert2.min.js"></script>
-
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Universitas Budi Luhur</title>
 </head>
 <body>
-<br><br><br>
 <?php include "msg_log.php"; ?>
 <div class="ui stackable top fixed container inverted borderless blue menu">
     <div class="item">
@@ -96,11 +94,11 @@ switch (basename($_SERVER['PHP_SELF'])) {
         </div>
     </div>
     <div class="right menu">
-        <div class="ui dropdown item"><?php echo "Hi, " . $_SESSION['nickname']; ?> <i class="dropdown icon"></i>
+        <div class="ui dropdown item"><?php echo "Hai, " . $_SESSION['nickname']; ?> <i class="dropdown icon"></i>
             <div class="menu">
-                <form action="controller/LoginController.php" method="post">
-                    <input type="hidden" name="postLogout" value="1">
-                    <input type="submit" class="ui button item" name="Keluar" value="Keluar">
+                <form action="controller/LoginController.php" method="post" class="ui form">
+                    <input type="hidden" name="postLogout" value="1" class="item">
+                    <button type="submit" class="ui negative fluid button" name="Keluar">Keluar</button>
                 </form>
             </div>
         </div>

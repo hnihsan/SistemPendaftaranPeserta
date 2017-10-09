@@ -49,34 +49,36 @@ date_default_timezone_set("Asia/Jakarta");
 </script>
 <div class="ui stackable main container grid">
     <div class="eight wide column">
-        <form class="ui form" action="controller/PesertaController.php" method="post">
-            <div class="ui yellow raised segment">
+        <div class="ui raised segments">
+            <div class="ui yellow segment">
                 <h4 class="ui dividing header">Tambah Peserta</h4>
-                <input type="hidden" name="postPeserta" value="1">
-                <input type="hidden" name="type" value="create">
-                <div id="form-element">
-                    <div class="two fields">
-                        <div class="field">
-                            <label for="nim">Nomor Induk Mahasiswa</label>
-                            <input id="nim" type="text" name="nim" required="" minlength="10" maxlength="10"
-                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57;"
-                                   onchange="availSeminar(this.value)">
+                <form class="ui form" action="controller/PesertaController.php" method="post">
+                    <input type="hidden" name="postPeserta" value="1">
+                    <input type="hidden" name="type" value="create">
+                    <div id="form-element">
+                        <div class="two fields">
+                            <div class="field">
+                                <label for="nim">Nomor Induk Mahasiswa</label>
+                                <input id="nim" type="text" name="nim" required="" minlength="10" maxlength="10"
+                                       onkeypress="return event.charCode >= 48 && event.charCode <= 57;"
+                                       onchange="availSeminar(this.value)">
+                            </div>
+                            <div class="field">
+                                <label for="fullname">Nama Peserta</label>
+                                <input id="fullname" type="text" name="fullname" required="" maxlength="50"
+                                       onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                            </div>
                         </div>
-                        <div class="field">
-                            <label for="fullname">Nama Peserta</label>
-                            <input id="fullname" type="text" name="fullname" required="" maxlength="50"
-                                   onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
-                        </div>
-                    </div>
-                    <div class="two fields">
-                        <div class="field">
-                            <label for="phone">Nomor Telepon</label>
-                            <input id="phone" type="text" name="phone" required="" maxlength="17"
-                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                        </div>
-                        <div class="field">
-                            <label for="email">Alamat Email</label>
-                            <input id="email" type="text" name="email" required="" maxlength="100">
+                        <div class="two fields">
+                            <div class="field">
+                                <label for="phone">Nomor Telepon</label>
+                                <input id="phone" type="text" name="phone" required="" maxlength="17"
+                                       onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                            </div>
+                            <div class="field">
+                                <label for="email">Alamat Email</label>
+                                <input id="email" type="text" name="email" required="" maxlength="100">
+                            </div>
                         </div>
                     </div>
                     <div class="field">
@@ -90,12 +92,13 @@ date_default_timezone_set("Asia/Jakarta");
                             ?>
                         </select>
                     </div>
-                    <input type="submit" class="ui primary fluid tambah button" tabindex="0" name="simpan"
+                    <input type="submit" class="ui fluid primary tambah button" tabindex="0" name="simpan"
                            value="Simpan">
-                </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
+
     <div class="eight wide column">
         <div class="ui raised segments">
             <div class="ui yellow segment">
