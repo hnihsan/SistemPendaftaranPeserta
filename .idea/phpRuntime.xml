@@ -20,7 +20,6 @@
       <extension name="ldap" enabled="false" />
       <extension name="libevent" enabled="false" />
       <extension name="memcached" enabled="false" />
-      <extension name="mime_magic" enabled="false" />
       <extension name="ming" enabled="false" />
       <extension name="mongo" enabled="false" />
       <extension name="mongodb" enabled="false" />

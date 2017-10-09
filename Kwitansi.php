@@ -21,7 +21,7 @@ date_default_timezone_set("Asia/Jakarta");
 <body>
 <div class="ui stackable top fixed inverted borderless blue menu">
     <div class="item">
-        <a href="Peserta.php"><i class="chevron left icon"></i> Kembali</a>
+        <a href="TambahPeserta.php"><i class="chevron left icon"></i> Kembali</a>
     </div>
     <div class="right menu">
         <div class="ui dropdown item"><?php echo "Hai, " . $_SESSION['nickname']; ?> <i class="dropdown icon"></i>

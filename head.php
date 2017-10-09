@@ -65,7 +65,7 @@ switch (basename($_SERVER['PHP_SELF'])) {
     <div class="item">
         <img src="resources/images/logo_bl.png">
     </div>
-    <a href="Peserta.php" class="item">Peserta</a>
+    <a href="TambahPeserta.php" class="item">Peserta</a>
     <div class="ui dropdown item">Peserta Terdaftar <i class="dropdown icon"></i>
         <div class="menu">
             <?php
