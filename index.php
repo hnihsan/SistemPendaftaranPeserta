@@ -2,7 +2,7 @@
 include "koneksi.php";
 
 if (!empty($_SESSION['username'])) {
-    header("Location: TambahPeserta.php");
+    header("Location: Peserta.php");
 }
 ?>
 
@@ -76,34 +76,30 @@ if (!empty($_SESSION['username'])) {
 <body>
 <?php include "msg_log.php"; ?>
 <div class="ui middle aligned center aligned grid">
-    <div class="column">
-        <h2 class="ui blue image header">
-            <img src="resources/images/logo_bl.png" class="image">
-            <div class="content">
-                Sistem Pendaftaran Seminar
-            </div>
-        </h2>
-        <form action="controller/LoginController.php" method="post" class="ui large form">
-            <input type="hidden" name="postLogin" value="1">
-            <div class="ui raised segments">
-                <div class="ui yellow attached segment">
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="user icon"></i>
-                            <input type="text" name="username" placeholder="Nama Pengguna">
+    <div class="row">
+        <div class="ui column">
+            <h2 class="ui blue image header">
+                <img src="resources/images/logo_bl.png" class="image">
+                <div class="content">
+                    Sistem Pendaftaran Seminar
+                </div>
+            </h2>
+            <form action="controller/LoginController.php" method="post" class="ui large form">
+                <input type="hidden" name="postLogin" value="1">
+                <div class="ui yellow raised segment">
+                    <div id="form-element">
+                        <div class="field">
+                            <input id="username" type="text" name="username" placeholder="Nama Pengguna">
                         </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="lock icon"></i>
-                            <input type="password" name="password" placeholder="Kata Sandi">
+                        <div class="field">
+                            <input id="password" type="password" name="password" placeholder="Kata Sandi">
                         </div>
+                        <input class="ui primary fluid button" tabindex="0" type="submit" value="Simpan">
                     </div>
                 </div>
-                <div class="ui bottom attached primary button" tabindex="0">Masuk</div>
-            </div>
-            <div class="ui error message"></div>
-        </form>
+                <div class="ui error message"></div>
+            </form>
+        </div>
     </div>
 </div>
 </body>

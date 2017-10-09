@@ -39,23 +39,31 @@ if(isset($_POST['postPeserta'])){
 $query = "INSERT INTO peserta (nim,fullname,jurusan,phone,email) VALUES(?,?,?,?,?)";
         $data = [$nim,$fullname,$idjurusan,$phone,$email];      if($conn->prepare($query)->execute($data) != TRUE) {
           $_SESSION['msg']="203";
-         header("Location: ../TambahPeserta.php");
+              header("Location: ../Peserta.php");
         }
       }
       $seminar=$_POST['seminar'];
       if(empty($seminar)){
         $_SESSION['msg']="299";
-      header("Location: ../TambahPeserta.php");}else{
+          header("Location: ../Peserta.php");
+      } else {
         $petugas= $_SESSION['username'];foreach($seminar as $sem){
           $query = "INSERT INTO peserta_seminar (id_seminar,nim,petugas) VALUES(?,?,?)";
           $data = [$sem,$nim,$petugas];
           try {
             $conn->prepare($query)->execute($data);
-            $_SESSION['msg']="103";header("Location: ../TambahPeserta.php");
+              $_SESSION['msg'] = "103";
+              header("Location: ../Peserta.php");
           } catch (Exception $e) {
             switch($e->getCode()){
-              case '23000' : $_SESSION['msg']="233";header("Location: ../TambahPeserta.php"); break;
-              default : $_SESSION['msg']="203";header("Location: ../TambahPeserta.php"); break;
+                case '23000' :
+                    $_SESSION['msg'] = "233";
+                    header("Location: ../Peserta.php");
+                    break;
+                default :
+                    $_SESSION['msg'] = "203";
+                    header("Location: ../Peserta.php");
+                    break;
 
           }
 }
@@ -109,8 +117,10 @@ $query = "INSERT INTO peserta (nim,fullname,jurusan,phone,email) VALUES(?,?,?,?,
       break;
     default :
     $_SESSION['msg']="299";
-  header("Location: ../TambahPeserta.php");}
+        header("Location: ../Peserta.php");
+  }
 }else{
-  $_SESSION['msg']="299";header("Location: ../TambahPeserta.php");
+    $_SESSION['msg'] = "299";
+    header("Location: ../Peserta.php");
 }
 ?>

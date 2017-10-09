@@ -23,7 +23,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="eb98e72e-787f-4638-8f05-222c4096c1b3">
+        <schema name="SeminaryRegist" object-types="column, table" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="eb98e72e-787f-4638-8f05-222c4096c1b3">
@@ -220,6 +224,7 @@
     <dataset-grid-settings>
       <general>
         <enable-zooming value="true" />
+        <enable-column-tooltip value="true" />
       </general>
       <sorting>
         <nulls-first value="true" />
@@ -448,6 +453,7 @@
         <debug-execution-timeout value="600" />
         <focus-result value="false" />
         <prompt-execution value="false" />
+        <target-connection value="ASK" />
       </statement-execution>
       <script-execution>
         <command-line-interfaces />

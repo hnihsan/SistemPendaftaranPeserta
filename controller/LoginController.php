@@ -15,7 +15,7 @@ if (isset($_POST['postLogin'])) {
     $_SESSION['fullname']=$data[0]['fullname'];
     $nick=explode(' ',$data[0]['fullname']);
     $_SESSION['nickname']=$nick[0];
-    header("Location: ../TambahPeserta.php");
+      header("Location: ../Peserta.php");
   }else{
     $_SESSION['msg']="301";header("Location: ../index.php");
   }
