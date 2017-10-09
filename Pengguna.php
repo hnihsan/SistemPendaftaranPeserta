@@ -19,7 +19,7 @@ date_default_timezone_set("Asia/Jakarta");
 
 </script>
 <div class="ui stackable main container grid">
-    <div class="sixteen width column">
+    <div class="sixteen wide column">
         <div class="ui raised segments">
             <div class="ui yellow segment">
                 <h4 class="ui dividing header">Daftar Pengguna</h4>

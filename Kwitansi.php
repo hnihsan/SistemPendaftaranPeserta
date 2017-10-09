@@ -37,7 +37,7 @@ date_default_timezone_set("Asia/Jakarta");
 </div>
 <!--body-->
 <div class="ui stackable main container grid">
-    <div class="sixteen width column">
+    <div class="sixteen wide column">
         <div class="ui raised segments">
             <div class="ui yellow attached segment">
                 <h4 class="ui dividing header">Kwitansi Pembayaran Seminar</h4>

@@ -50,7 +50,7 @@ date_default_timezone_set("Asia/Jakarta");
 <div class="ui stackable main container grid">
     <div class="eight wide column">
         <form class="ui form" action="controller/PesertaController.php" method="post">
-            <div class="ui yellow segment">
+            <div class="ui yellow raised segment">
                 <h4 class="ui dividing header">Tambah Peserta</h4>
                 <input type="hidden" name="postPeserta" value="1">
                 <input type="hidden" name="type" value="create">
@@ -90,7 +90,8 @@ date_default_timezone_set("Asia/Jakarta");
                             ?>
                         </select>
                     </div>
-                    <input type="submit" class="ui primary fluid button" tabindex="0" name="simpan" value="Simpan">
+                    <input type="submit" class="ui primary fluid tambah button" tabindex="0" name="simpan"
+                           value="Simpan">
                 </div>
             </div>
         </form>
@@ -100,7 +101,7 @@ date_default_timezone_set("Asia/Jakarta");
         <div class="ui raised segments">
             <div class="ui yellow segment">
                 <h4 class="ui dividing header">Daftar Peserta Terdaftar</h4>
-                <table class="ui padded selectable very basic unstackable table" id="table1">
+                <table class="ui padded selectable basic unstackable table" id="table1">
                     <thead>
                     <tr>
                         <th>No.</th>

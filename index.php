@@ -94,7 +94,7 @@ if (!empty($_SESSION['username'])) {
                         <div class="field">
                             <input id="password" type="password" name="password" placeholder="Kata Sandi">
                         </div>
-                        <input class="ui primary fluid button" tabindex="0" type="submit" value="Simpan">
+                        <input class="ui primary fluid button" tabindex="0" type="submit" value="Masuk">
                     </div>
                 </div>
                 <div class="ui error message"></div>
