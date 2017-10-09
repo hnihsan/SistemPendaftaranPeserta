@@ -23,7 +23,7 @@ date_default_timezone_set("Asia/Jakarta");
                 <h4 class="ui dividing header">Daftar Seminar</h4>
                 <table class="ui padded selectable basic table" id="table1">
                     <thead>
-                    <tr>
+                    <tr class="center aligned">
                         <th>Kode</th>
                         <th>Nama Seminar</th>
                         <th>Tanggal</th>
@@ -63,8 +63,8 @@ date_default_timezone_set("Asia/Jakarta");
                             echo "<td>" . date_format($tgl, "l, d F Y") . "</td>";
                             echo "<td>" . date_format($jam, "H.i") . "</td>";
                             echo "<td>" . $row['tempat'] . "</td>";
-                            echo "<td>" . number_format($row['kuota'], 0, '', '.') . "</td>";
-                            echo "<td>Rp" . number_format($row['harga'], 0, '', '.') . ",00</td>"; ?>
+                            echo "<td class='right aligned'>" . number_format($row['kuota'], 0, '', '.') . "</td>";
+                            echo "<td class='right aligned'>Rp" . number_format($row['harga'], 0, '', '.') . ",00</td>"; ?>
                             <td>
                                 <button class="ui compact ubah button" onclick="editSeminar(this.value)"
                                         value="<?php echo $row['id']; ?>">Ubah

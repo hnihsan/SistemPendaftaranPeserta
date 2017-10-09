@@ -23,7 +23,7 @@ date_default_timezone_set("Asia/Jakarta");
                 <h4 class="ui dividing header">Daftar Pengguna</h4>
                 <table class="ui padded selectable basic table" id="table1">
                     <thead>
-                    <tr>
+                    <tr class="center aligned">
                         <th>ID</th>
                         <th>Nama Pengguna</th>
                         <th>Telepon</th>
