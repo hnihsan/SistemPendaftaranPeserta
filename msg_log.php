@@ -17,7 +17,7 @@ if (!empty($_SESSION['msg'])) {
     <script type="text/javascript">
         swal('<?php echo $message[0]['header'] ?>', '<?php echo $message[0]['body'] ?>', '<?php echo $message[0]['type'] ?>')
     </script>
-<?php
-unset($_SESSION['msg']);
+    <?php
+    unset($_SESSION['msg']);
 }
 ?>

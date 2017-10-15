@@ -18,61 +18,69 @@ date_default_timezone_set("Asia/Jakarta");
 </script>
 <div class="ui stackable main container grid">
     <div class="row">
-      <div class="ui sixteen width column">
-        <div class="ui raised segments">
-          <div class="ui yellow segment">
-            <h4 class="ui dividing header">Daftar Peserta Terdaftar</h4>
-            <table class="ui padded selectable very basic table" id="table1">
-              <thead>
-                <trclass="center aligned">
-                  <th>NIM</th>
-                  <th>Nama</th>
-                  <th>Program Studi</th>
-                  <th>Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                $query="SELECT * FROM peserta";
-                if($peserta=$conn->query($query)){
-                  if(sizeof($peserta)>0){
-                    foreach($peserta as $row){
-                      ?>
-                      <tr>
-                        <td><?php echo $row['nim'] ?></td>
-                        <td><?php echo $row['fullname'] ?></td>
-                        <?php  $jurusan=$conn->query("SELECT nama FROM jurusan where id=".$row['jurusan'])->fetchAll(); ?>
-                        <td><?php echo $jurusan[0]['nama'] ?></td>
-                        <td>
-                          <button onclick="editPeserta(this.value)" value="<?php echo $row['nim']; ?>" class="ui compact ubah button">Ubah</button>
-                        <a href="Report/Kwitansi.php?id=<?php echo $row['nim']?>" class="ui compact primary button"><i class="chevron print icon"></i> Kwitansi</a>
-                        </td>
-                      </tr>
-                      <?php  }
-                    }else{ ?>
-                      <tr>
-                        <td>0</td>
-                        <td>Belum ada data</td>
-                        <td>Belum ada data</td>
-                        <td>-</td>
+        <div class="ui sixteen width column">
+            <div class="ui raised segments">
+                <div class="ui yellow segment">
+                    <h4 class="ui dividing header">Daftar Peserta Terdaftar</h4>
+                    <table class="ui padded selectable basic table" id="table1">
+                        <thead>
+                        <tr class="center aligned">
+                            <th>NIM</th>
+                            <th>Nama</th>
+                            <th>Program Studi</th>
+                            <th>Aksi</th>
                         </tr>
-                      <?php  }
-                    }else{ ?>
-                      <tr>
-                        <td colspan="4">Terjadi Kesalahan</td><td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                  <?php  } ?>
-                  </tbody>
-                </table>
-              </div>
+                        </thead>
+                        <tbody>
+                        <?php
+                        $query = "SELECT * FROM peserta";
+                        if ($peserta = $conn->query($query)) {
+                            if (sizeof($peserta) > 0) {
+                                foreach ($peserta as $row) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $row['nim'] ?></td>
+                                        <td><?php echo $row['fullname'] ?></td>
+                                        <?php $jurusan = $conn->query("SELECT nama FROM jurusan where id=" . $row['jurusan'])->fetchAll(); ?>
+                                        <td><?php echo $jurusan[0]['nama'] ?></td>
+                                        <td class="center aligned">
+                                            <button onclick="editPeserta(this.value)" value="<?php echo $row['nim']; ?>"
+                                                    class="ui compact ubah button">Ubah
+                                            </button>
+                                            <a href="Report/Kwitansi.php?id=<?php echo $row['nim'] ?>"
+                                               class="ui compact primary button">
+                                                Cetak Kwitansi
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php }
+                            } else { ?>
+                                <tr>
+                                    <td>0</td>
+                                    <td>Belum ada data</td>
+                                    <td>Belum ada data</td>
+                                    <td class="center aligned">
+                                        <button class="ui compact disabled button">Ubah</button>
+                                        <button class="ui compact disabled primary button">Cetak Kwitansi</button>
+                                    </td>
+                                </tr>
+                            <?php }
+                        } else { ?>
+                            <tr>
+                                <td colspan="4">Terjadi Kesalahan</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <div class="ui modal " id="ubah">
-    <i class="close icon"></i>
     <div class="header">
         Ubah Peserta
     </div>

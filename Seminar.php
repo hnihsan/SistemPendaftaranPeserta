@@ -47,8 +47,8 @@ date_default_timezone_set("Asia/Jakarta");
                             <td>Belum ada data</td>
                             <td>Belum ada data</td>
                             <td>-</td>
-                            <td>
-                                <a class="ui compact ubah disabled button">Ubah</a>
+                            <td class="center aligned">
+                                <a class="ui compact disabled button">Ubah</a>
                                 <a class="ui compact negative disabled button">Hapus</a>
                             </td>
                         </tr>
@@ -65,7 +65,7 @@ date_default_timezone_set("Asia/Jakarta");
                             echo "<td>" . $row['tempat'] . "</td>";
                             echo "<td class='right aligned'>" . number_format($row['kuota'], 0, '', '.') . "</td>";
                             echo "<td class='right aligned'>Rp" . number_format($row['harga'], 0, '', '.') . ",00</td>"; ?>
-                            <td>
+                            <td class="center aligned">
                                 <button class="ui compact ubah button" onclick="editSeminar(this.value)"
                                         value="<?php echo $row['id']; ?>">Ubah
                                 </button>

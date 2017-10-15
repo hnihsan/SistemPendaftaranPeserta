@@ -39,7 +39,10 @@ date_default_timezone_set("Asia/Jakarta");
                             <td>0</td>
                             <td>Belum ada data</td>
                             <td>Belum ada data</td>
-                            <td>-</td>
+                            <td class="center aligned">
+                                <button class="ui compact disabled button">Ubah</button>
+                                <button class="ui compact disabled negative button"
+                            </td>
                         </tr>
                     <?php } else {
                         foreach ($users as $user) {
@@ -48,7 +51,7 @@ date_default_timezone_set("Asia/Jakarta");
                             echo "<td>" . $user['fullname'] . "</td>";
                             echo "<td>" . $user['phone'] . "</td>";
                             echo "<td>" . $user['email'] . "</td>"; ?>
-                            <td>
+                            <td class="center aligned">
                                 <button onclick="editPengguna(this.value)" value="<?php echo $user['username']; ?>"
                                         class="ui compact ubah button">Ubah
                                 </button>

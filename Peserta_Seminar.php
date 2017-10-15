@@ -62,7 +62,7 @@ if (!empty($_GET['id'])) $id = $_GET['id'];
                                     <?php $jurusan = $conn->query("SELECT nama FROM jurusan where id=" . $row['jurusan'])->fetchAll(); ?>
                                     <td><?php echo $jurusan[0]['nama'] ?></td>
                                     <td><?php echo $status; ?></td>
-                                    <td>
+                                    <td class="center aligned">
                                         <button onclick="editPeserta(this.value)" value="<?php echo $row['nim']; ?>"
                                                 class="ui compact ubah button">Ubah
                                         </button>
@@ -75,7 +75,9 @@ if (!empty($_GET['id'])) $id = $_GET['id'];
                                 <td>Belum ada data</td>
                                 <td>Belum ada data</td>
                                 <td>-</td>
-                                <td>-</td>
+                                <td>
+                                    <button class="ui compact disabled button">Ubah</button>
+                                </td>
                             </tr>
                         <?php }
                     } else {
@@ -90,7 +92,6 @@ if (!empty($_GET['id'])) $id = $_GET['id'];
     </div>
 </div>
 <div class="ui modal" id="ubah">
-    <i class="close icon"></i>
     <div class="header">
         Ubah Status Kehadiran
     </div>
