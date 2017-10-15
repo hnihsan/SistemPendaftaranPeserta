@@ -34,7 +34,7 @@ function editPeserta($str) {
               <tbody>
                 <?php
                 $query="SELECT * FROM peserta";
-                if($peserta=$conn->query($query)->fetchAll()){
+                if($peserta=$conn->query($query)){
                   if(sizeof($peserta)>0){
                     foreach($peserta as $row){
                       ?>
@@ -45,6 +45,7 @@ function editPeserta($str) {
                         <td><?php echo $jurusan[0]['nama'] ?></td>
                         <td>
                           <button onclick="editPeserta(this.value)" value="<?php echo $row['nim']; ?>" class="ui compact ubah button">Ubah</button>
+                          <a href="Report/Kwitansi.php?id=<?php echo $row['nim']?>" class="ui compact primary button"><i class="chevron print icon"></i> Kwitansi</a>
                         </td>
                       </tr>
                       <?php  }
@@ -54,12 +55,14 @@ function editPeserta($str) {
                         <td>Belum ada data</td>
                         <td>Belum ada data</td>
                         <td>-</td>
-                        <td>-</td>
                       </tr>
                       <?php  }
                     }else{ ?>
                       <tr>
-                        <td colspan="5">Terjadi Kesalahan</td>
+                        <td colspan="4">Terjadi Kesalahan</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                       </tr>
                   <?php  } ?>
                   </tbody>

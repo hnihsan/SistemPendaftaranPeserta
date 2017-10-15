@@ -10,6 +10,22 @@ $Seminar=$conn->query("SELECT * FROM seminar WHERE id=$id")->fetchAll();
 $Peserta=$conn->query("SELECT b.fullname as nama, b.nim FROM peserta_seminar a JOIN peserta b ON a.nim=b.nim JOIN seminar c ON a.id_seminar=c.id WHERE a.id_seminar=$id ");
 ?>
 <!--Menu-->
+<div class="ui stackable top fixed inverted borderless blue menu">
+    <div class="item">
+        <a href="../Peserta_Seminar.php?id=<?php echo $id; ?>"><i class="chevron left icon"></i> Kembali</a>
+    </div>
+    <div class="right menu">
+        <div class="ui dropdown item"><?php echo "Hai, " . $_SESSION['nickname']; ?> <i class="dropdown icon"></i>
+            <div class="menu">
+                <form action="controller/LoginController.php" method="post" class="ui form">
+                    <input type="hidden" name="postLogout" value="1" class="item">
+                    <button type="submit" class="ui basic fluid button" name="Keluar">Keluar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Menu-->
 <div id="section-to-print" class="ui main container" >
     <h4  class="ui center aligned header">Daftar Hadir Peserta</h4>
     <h1  class="ui center aligned header"><?php echo $Seminar[0]['nama'] ?></h1>

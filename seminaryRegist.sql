@@ -1,5 +1,5 @@
-#CREATE DATABASE SeminaryRegist;
-#USE SeminaryRegist;
+CREATE DATABASE SeminaryRegist;
+USE SeminaryRegist;
 
 CREATE TABLE users (
   username char(100) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE jurusan (
   id int(2) NOT NULL AUTO_INCREMENT,
   kode char(2) NOT NULL,
   nama varchar(255) NOT NULL,
-  fakultas enum('FTI','FEB','FISIP','FIKOM','D3', 'ASTRI', 'PAS', '-'),
+  fakultas enum('FTI','FEB','FISIP','FIKOM','D3', 'ASTRI', 'PAS','FT', '-'),
   cabang char(2) NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
