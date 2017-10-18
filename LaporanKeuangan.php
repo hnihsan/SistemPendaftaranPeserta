@@ -12,7 +12,7 @@ $Seminar = $conn->query("SELECT * FROM seminar");
             </div>
             <div class="sub header">Dicetak pada <?php echo date("d-m-Y") ?>, pukul <?php echo date("H.i") ?></div>
         </h2>
-        <table class="ui fixed celled table">
+        <table class="ui celled table">
             <thead>
             <tr class="center aligned">
                 <th>Nama Seminar</th>

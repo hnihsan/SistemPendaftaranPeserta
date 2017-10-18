@@ -22,7 +22,7 @@ date_default_timezone_set("Asia/Jakarta");
             <div class="ui raised segments">
                 <div class="ui yellow segment">
                     <h4 class="ui dividing header">Daftar Peserta Terdaftar</h4>
-                    <table class="ui padded selectable basic table" id="table1">
+                    <table class="ui selectable basic table" id="table1">
                         <thead>
                         <tr class="center aligned">
                             <th>NIM</th>
