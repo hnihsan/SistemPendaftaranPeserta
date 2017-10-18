@@ -95,7 +95,7 @@ $Seminar=$conn->query("SELECT * FROM seminar a JOIN peserta_seminar b ON id_semi
     <?php $total+=$row['harga']; } ?>
               <tr>
                 <td colspan="2" class="ui center aligned">Total</td>
-                <td><?php echo "Rp.".number_format($total,0,',','.') ?></td>
+                <td><?php echo number_format($total,0,',','.') ?></td>
               </tr>
               </tbody>
           </table>
