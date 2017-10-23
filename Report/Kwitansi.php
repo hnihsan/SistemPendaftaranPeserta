@@ -62,56 +62,60 @@ $Seminar = $conn->query("SELECT * FROM seminar a JOIN peserta_seminar b ON id_se
 </div>
 <!--body-->
 <div id="section-to-print" class="ui main container ">
-    <h2 class="ui center aligned blue image dividing header">
-        <img src="../resources/images/logo_bl.png" class="image">
+  <h2  class="ui center aligned blue image dividingheader">
+  <img src="../resources/images/logo_bl.png" class="image">
         <div class="content">
             Laporan Keuangan
         </div>
-        <div class="sub header">Dicetak pada <?php echo date("d-m-Y") ?>, pukul <?php echo date("H.i") ?></div>
+        <div class="sub header">Dicetak pada<?php echo date("d-m- Y")?>, pukul <?php echodate("H.i") ?></div>
     </h2>
-    <div class="ui relaxed divided list">
-        <div class="item">
-            <div class="header">Nama</div>
-            <?php echo $Peserta[0]['fullname']; ?>
-        </div>
-        <div class="item">
-            <div class="header">Jurusan</div>
-            <?php echo $Jurusan[0]['nama'] ?>
-        </div>
-        <div class="item">
-            <div class="header">Fakultas</div>
-            <?php echo $Fakultas; ?>
-        </div>
-        <div class="item">
-            <div class="header">Seminar yang Diikuti</div>
-            <table class="ui celled table">
-                <thead>
-                <tr class="center aligned">
-                    <th>ID</th>
-                    <th>Nama</th>
-                    <th>Harga</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php $total = 0;
-                foreach ($Seminar as $row) { ?>
-                    <tr>
-                        <td><?php echo $row['id'] ?></td>
-                        <td><?php echo $row['nama'] ?></td>
-                        <td class="right aligned">Rp<?php echo number_format($row['harga'], 0, ',', '.') ?>,00</td>
-                    </tr>
-                    <?php $total += $row['harga'];
-                } ?>
+  <div class="ui relaxed divided list">
+      <div class="item">
+          <div class="header">Nama</div>
+          <?php echo $Peserta[0]['fullname']; ?>
+      </div>
+      <div class="item">
+          <div class="header">Jurusan</div>
+          <?php echo $Jurusan[0]['nama'] ?>
+      </div>
+      <div class="item">
+          <div class="header">Fakultas</div>
+          <?php echo $Fakultas; ?>
+      </div>
+      <div class="item">
+          <div class="header">Seminar yang Diikuti</div>
+          <table class="ui celled table">
+              <thead>
+              <trclass="center aligned">
+                  <th>ID</th>
+                  <th>Nama</th>
+                  <th>Harga</th>
+              </tr>
+              </thead>
+              <tbody>
+    <?php $total=0;
+    foreach($Seminar as $row) {?>
+              <tr>
+                  <td><?php echo $row['id'] ?></td>
+                  <td><?php echo $row['nama'] ?></td>
+                  <tdclass="right aligned">Rp<?php echo number_format($row['harga'],0,',','.') ?>,00</td>
+              </tr>
+    <?php $total+=$row['harga'];
+              } ?>
                 </tbody>
-                <tfoot>
-                <tr>
-                    <th colspan="2" class="center aligned">Total</th>
-                    <th class="right aligned">Rp<?php echo number_format($total, 0, ',', '.') ?>,00</th>
-                </tr>
-                </tfoot>
-            </table>
-        </div>
-    </div>
+                <tfoot><tr>
+                <th colspan="2" class=" center aligned">Total</th>
+                <th class="right aligned">Rp<?php echo "Rp.".number_format($total,0,',','.') ?>,00</th>
+              </tr>
+              </tfoot>
+          </table>
+      </div>
+  <divid="tombolprint" class="center aligned ui container">
+  			<br>
+  			<a class="ui bottom attached primary button" tabindex="0" onClick="window.print()">Cetak</a>
+  			<a href="../Peserta.php">Kembali</a>
+		</div>
+  </div>
 </div>
 </body>
 <?php include 'footer.php'; ?>
