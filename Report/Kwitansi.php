@@ -1,47 +1,51 @@
 <?php
 include "head.php";
-if(!empty($_GET['id'])){
-  $id=$_GET['id'];
-}else{
-  header("Location: ../Peserta.php");
+if (!empty($_GET['id'])) {
+    $id = $_GET['id'];
+} else {
+    header("Location: ../Peserta.php");
 }
 date_default_timezone_set("Asia/Jakarta");
-$Peserta=$conn->query("SELECT * FROM peserta WHERE nim=$id")->fetchAll();
-$Jurusan=$conn->query("SELECT nama, fakultas FROM jurusan WHERE id='".$Peserta[0]['jurusan']."'")->fetchAll();
+$Peserta = $conn->query("SELECT * FROM peserta WHERE nim=$id")->fetchAll();
+$Jurusan = $conn->query("SELECT nama, fakultas FROM jurusan WHERE id='" . $Peserta[0]['jurusan'] . "'")->fetchAll();
 switch ($Jurusan[0]['fakultas']) {
-  case 'FTI': $Fakultas="Fakultas Teknologi Informasi";break;
-  case 'FT' : $Fakultas="Fakultas Teknik";break;
-  case 'FEB' : $Fakultas="Fakultas Ekonomi dan Bisnis";break;
-  case 'FISIP' : $Fakultas="Fakultas Ilmu Sosial dan Ilmu Politik";break;
-  case 'FIKOM' : $Fakultas="Fakultas Ilmu Komunikasi";break;
-  case 'ASTRI' : $Fakultas="Akademi Sekretari";break;
-  case 'PAS' : $Fakultas="Pascasarjana";break;
-  case '-' : $Fakultas="Umum";break;
-  default:
-    $Fakultas='Umum';
-    break;
+    case 'FTI':
+        $Fakultas = "Fakultas Teknologi Informasi";
+        break;
+    case 'FT' :
+        $Fakultas = "Fakultas Teknik";
+        break;
+    case 'FEB' :
+        $Fakultas = "Fakultas Ekonomi dan Bisnis";
+        break;
+    case 'FISIP' :
+        $Fakultas = "Fakultas Ilmu Sosial dan Ilmu Politik";
+        break;
+    case 'FIKOM' :
+        $Fakultas = "Fakultas Ilmu Komunikasi";
+        break;
+    case 'ASTRI' :
+        $Fakultas = "Akademi Sekretari";
+        break;
+    case 'PAS' :
+        $Fakultas = "Pascasarjana";
+        break;
+    case '-' :
+        $Fakultas = "Umum";
+        break;
+    default:
+        $Fakultas = 'Umum';
+        break;
 }
-$Seminar=$conn->query("SELECT * FROM seminar a JOIN peserta_seminar b ON id_seminar WHERE a.id=b.id_seminar AND b.nim=$id AND b.status=1");
+$Seminar = $conn->query("SELECT * FROM seminar a JOIN peserta_seminar b ON id_seminar WHERE a.id=b.id_seminar AND b.nim=$id AND b.status=1");
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <!-- Standard Meta -->
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <!-- Site Properties -->
-    <title>Sistem Pendaftaran Seminar Universitas Budi Luhur</title>
-    <link rel="stylesheet" type="text/css" href="resources/semantic/semantic.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="resources/semantic/semantic.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="resources/css/sweetalert2.min.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
-    <script src="resources/js/sweetalert2.min.js"></script>
-</head>
-<body>
+<style type="text/css">
+    body {
+        padding-top: 1em;
+    }
+</style>
 <!--Menu-->
-<div class="ui stackable top fixed inverted borderless blue menu">
+<div class="ui stackable top fixed inverted borderless blue menu" id="tombolprint">
     <div class="item">
         <a href="../Peserta.php"><i class="chevron left icon"></i> Kembali</a>
     </div>
@@ -58,9 +62,13 @@ $Seminar=$conn->query("SELECT * FROM seminar a JOIN peserta_seminar b ON id_semi
 </div>
 <!--body-->
 <div id="section-to-print" class="ui main container ">
-  <br>
-  <h3  class="ui center aligned header">Kwitansi Pendaftaran</h3>
-  <h5 class="ui center aligned header"><?php echo date("j F Y,")." pukul ".date("H:i") ?></h5>
+  <h2  class="ui center aligned blue image dividingheader">
+  <img src="../resources/images/logo_bl.png" class="image">
+        <div class="content">
+            Laporan Keuangan
+        </div>
+        <div class="sub header">Dicetak pada<?php echo date("d-m- Y")?>, pukul <?php echodate("H.i") ?></div>
+    </h2>
   <div class="ui relaxed divided list">
       <div class="item">
           <div class="header">Nama</div>
@@ -78,7 +86,7 @@ $Seminar=$conn->query("SELECT * FROM seminar a JOIN peserta_seminar b ON id_semi
           <div class="header">Seminar yang Diikuti</div>
           <table class="ui celled table">
               <thead>
-              <tr>
+              <trclass="center aligned">
                   <th>ID</th>
                   <th>Nama</th>
                   <th>Harga</th>
@@ -90,17 +98,19 @@ $Seminar=$conn->query("SELECT * FROM seminar a JOIN peserta_seminar b ON id_semi
               <tr>
                   <td><?php echo $row['id'] ?></td>
                   <td><?php echo $row['nama'] ?></td>
-                  <td><?php echo "Rp.".number_format($row['harga'],0,',','.') ?></td>
+                  <tdclass="right aligned">Rp<?php echo number_format($row['harga'],0,',','.') ?>,00</td>
               </tr>
-    <?php $total+=$row['harga']; } ?>
-              <tr>
-                <td colspan="2" class="ui center aligned">Total</td>
-                <td><?php echo "Rp.".number_format($total,0,',','.') ?></td>
+    <?php $total+=$row['harga'];
+              } ?>
+                </tbody>
+                <tfoot><tr>
+                <th colspan="2" class=" center aligned">Total</th>
+                <th class="right aligned">Rp<?php echo "Rp.".number_format($total,0,',','.') ?>,00</th>
               </tr>
-              </tbody>
+              </tfoot>
           </table>
       </div>
-      <div id="tombolprint" class="center aligned ui container">
+  <divid="tombolprint" class="center aligned ui container">
   			<br>
   			<a class="ui bottom attached primary button" tabindex="0" onClick="window.print()">Cetak</a>
   			<a href="../Peserta.php">Kembali</a>

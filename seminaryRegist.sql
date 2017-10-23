@@ -97,17 +97,17 @@ CREATE TABLE msg_log(
 
 ##DATA UNTUK msg_log
 INSERT INTO msg_log (id,type,header,body) VALUES
-(101,'success','Yeay !','Berhasil menambah Pengguna.'),
-(102,'success','Yeay !','Berhasil menambah Seminar.'),
-(103,'success','Yeay !','Berhasil menambah Peserta.'),
+(101,'success','Yeay!','Berhasil menambah Pengguna.'),
+(102,'success','Yeay!','Berhasil menambah Seminar.'),
+(103,'success','Yeay!','Berhasil menambah Peserta.'),
 
-(111,'success', 'Yeay !', 'Data Pengguna telah berhasil diubah.'),
-(112,'success', 'Yeay !', 'Data Seminar telah berhasil diubah.'),
-(113,'success', 'Yeay !', 'Data Peserta telah berhasil diubah.'),
+(111,'success', 'Yeay!', 'Data Pengguna telah berhasil diubah.'),
+(112,'success', 'Yeay!', 'Data Seminar telah berhasil diubah.'),
+(113,'success', 'Yeay!', 'Data Peserta telah berhasil diubah.'),
 
-(121,'success','Berhasil !','Data Pengguna telah dihapus.'),
-(122,'success','Berhasil !','Data Seminar telah dihapus.'),
-(123,'success','Berhasil !','Data Peserta telah dihapus.'),
+(121,'success','Berhasil!','Data Pengguna telah dihapus.'),
+(122,'success','Berhasil!','Data Seminar telah dihapus.'),
+(123,'success','Berhasil!','Data Peserta telah dihapus.'),
 
 (201,'error', 'Oops :(', 'Gagal menambah Pengguna, terjadi kesalahan.'),
 (202,'error', 'Oops :(', 'Gagal menambah Seminar, terjadi kesalahan.'),
@@ -125,7 +125,7 @@ INSERT INTO msg_log (id,type,header,body) VALUES
 
 (299,'error', 'Oops :(', 'Gagal menambah data, Isi kembali dengan benar'),
 
-(300,'error', 'Oops :(', 'Login terlebih dahulu !'),
+(300,'error', 'Oops :(', 'Login terlebih dahulu!'),
 (301,'error', 'Oops :(', 'Kombinasi Username dan Password salah');
 
 ###############################################
